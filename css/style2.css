@@ -266,14 +266,29 @@ a:visited { color: var(--link-color); text-decoration: none; }
 .site-link:hover,
 .site-link:visited {
   margin-bottom: 7px;
-  display: inline-block;
+  display: inline-block ;
   text-align: center;
-  font-size: 18px;
+  font-size: 10px;
   line-height: 2em;
   height: 2em;
   padding: 0 10px;
   color: #e8e8eb;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
+  font-weight: 50;
+}
+
+.site-link2:link,
+.site-link2:hover,
+.site-link2:visited {
+  margin-bottom: 7px;
+  display: inline-block ;
+  text-align: center;
+  font-size: 10px;
+  line-height: 2em;
+  height: 2em;
+  padding: 0 10px;
+  color: #e8e8eb;
+  border: 1px solid #fff;
   font-weight: 50;
 }
 /*
@@ -586,6 +601,16 @@ input#search-input {
   .site-link:visited {
     position: absolute;
     right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media (min-width: 1080px) {
+  .site-link2:link,
+  .site-link2:visited {
+    position: absolute;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
   }

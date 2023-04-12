@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Notes: Descriptive Statistics</title>
+  <title>Notes: Graphs</title>
   <meta name="viewport" content="width=device-width">
   <meta name="description" content="Detailed Notes">
   <link rel="canonical" href="/index.html">
@@ -60,151 +60,84 @@
       <div class="post">
 
   <header class="post-header">
-    <h1>Descriptive Statistics</h1>
+    <h1>Graphs</h1>
   </header>
 
   <article class="post-content">
   <ul id="markdown-toc">
-  <li><a href="#type-of-data" id="markdown-toc-statistics">Types of Data</a>
-  <li><a href="#type-measure-of-central-tendency" id="markdown-toc-type-measure-of-central-tendency">Measure of Central Tendency</a><ul>
-          <li><a href="#mean" id="markdown-toc-mean">Mean</a></li>
-          <li><a href="#median" id="markdown-toc-median">Median</a></li>
-          <li><a href="#mode" id="markdown-toc-mode">Mode</a></li>
-          <li><a href="#weighted-mean" id="markdown-toc-weighted-mean">Weighted Mean</a></li>
-      </ul>
-   <li><a href="#measure-of-dispersion" id="markdown-toc-measure-of-disperion">Measure of Dispersion</a></li><ul>
-          <li><a href="#range" id="markdown-toc-range">Range</a></li>
-          <li><a href="#variance" id="markdown-toc-variance">Variance</a></li>
-          <li><a href="#standard-deviation" id="markdown-toc-standard-deviation">Standard Deviation</a></li>
-          <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li>
-      </ul>
+  <li><a href="#univariate-analysis" id="markdown-toc-univariate-analysis">Graphs for Univariate Analysis</a><ul>
+          <li><a href="#categorical_uni" id="markdown-toc-categorical_uni">Categorical Data - Frequency distribution table & Cummulative Frequency</a></li>
+          <li><a href="#numerical_uni" id="markdown-toc-numerical_uni">Numerical Data - Frequency distribution table & Histogram</a></li>
+         </ul>
+   <li><a href="#bivariate-analysis" id="markdown-toc-bivariate-analysis">Graphs for Bivariate Analysis</a></li><ul>
+          <li><a href="#categorical-categorical" id="markdown-toc-categorical-categorical">Categorical-Categorical</a></li>
+          <li><a href="#numerical-numerical" id="markdown-toc-numerical-numerical">Numerical-Numerical</a></li>
+          <li><a href="#categorical-numerical" id="markdown-toc-categorical-numerical">Categorical-Numerical</a></li>
+        </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
 
-<h3 id="type-of-data">Types of Data</h3>
+<h3 id="univariate-analysis">Graphs for Univariate Analysis</h3>
 <ul>
-  <li>In tabular data every column will have a type. By type one means the characterstic of the data</li>
-  <li>Data can be broadly be of two types:</li><ul>
-      <li><b>Quantitaive Data</b> - These are numerical values (ex:1,2,3,1.56...)</li>
-      <li>This can be of two types</li>
-     <ul>
-          <li>Discrete Data - These can be counted and occurs at intervals(ex:1,2,3,4)</li>
-          <li>Continuous Data - These can be measured (ex: 1,1.1,1.2,1.3..)</li>  </ul>
+  <li>It is for analyzing one column at a time</li><ul></ul>
+  <li>Type of graph depends whether the column is :</li><ul>
+     <li>Categorical</li>
+     <li>Numerical</li>  
+   
+    </ul>
 
-      <li><b>Qualitative Data</b> - These are categorical values (ex: blue, yellow, far, near)</li> 
-      <li>This can be of two types</li>
-      <ul>
-          <li>Nominal Data - It has no order (ex: Gender)</li>
-          <li>Ordinal Data - It has order (ex: feedback - we can order between feedbacks)</li>   
-        </ul>
- </ul>
- <li>Below is a visual representation of the same </li>
-
-  <img src="assets/types_of_data.jpeg" alt="" /></li>
-  <li><i>Note</i>: There is a typo for Categorical data box. It is <b>qualitative</b> data & not quantitaivie </li>
+<h4 id="categorical_uni">Categorical Data - Frequency distribution table & Cummulative Frequency</h4>
+<ul>
+  <li><b>Frequency distribution</b> table is a table that summarizes the number of times each value occures in a dataset</li>
+  <img src="assets/frequency.PNG" alt="" /></li>
+  <li><b>Relative Frequency</b> is the proportion or percentage of a category in a dataset . It is obtained by dividing the frequency of category by total number of observations in the dataset</li>
+  <img src="assets/relative_freq.PNG" alt="" /></li>
+  <li><b>Cummulative Frequency</b> is the running total of frequencies of a variable or category in a dataset or sample. It is calculated by adding up frequencies of the current category and all previous categories</li>
+  <img src="assets/cummulative_freq.PNG" alt="" /></li>
+</ul>
+<h4 id="numerical_uni">Numerical Data - Frequency distribution table & Histogram</h4>
+<ul>
+  <li><b>Histogram</b> is a graphical representation of a grouped frequency distribution with continuous data. We have to choose bins and see the frequency of data in ech bin</li>
+  <img src="assets/histogram.PNG" alt="" /></li>  
 </ul>
 
-<h3 id="type-measure-of-central-tendency">Measure of Central Tendency</h3>
+<h3 id="bivariate-analysis">Graphs for Bivariate Analysis</h3>
 <ul>
-  <li>It is a statistical measure that represents the central value for a dataset. It gives a single value that is most representative of the dataset as a whole</li><ul></ul>
-  <li>There are mainly three types of central tendency measurements</li><ul>
-     <li>Mean</li>
-     <li>Median</li>  
-     <li>Mode</li> 
-</ul>
-<li>Now lets try to understand each of them</li>
-  
-</ul>
-
-
-<h4 id="mean">Mean</h4>
+  <li>It is for analyzing two columns at a time</li><ul></ul>
+  <li>There are three scenarios :</li><ul>
+     <li>Two columns are categorical</li>
+     <li>Two columns are Numerical</li>  
+     <li>One is categorical and the other is numerical</li>
+   
+    </ul>
+<h4 id="categorical-categorical">Categorical-Categorical</h4>
 <ul>
-  <li>Mean is the sum of all values in a dataset divided by the number of values</li>
-  <li>This is also known as average</li>
-  <li>When we find out the mean of population it is called as population mean and when we find the mean of a sample it's called a sample mean</li>
-  <ul>
-    <li>Disadvantage of using mean: It is affected by outliers. If there is a big outlier the mean tends to shift towards the outlier not giving a right central value</li>
-  </ul>
-  <img src="assets/mean.PNG" alt="" /></li>
-</ul>
-<h4 id="median">Median</h4>
-<ul>
-  <li>Median is the middle value in the dataset when the data is arranged in order</li>
-  <ul>
-    <li>Advantage of using medain: It is not affected by outliers as in mean. Because of the ordering the outliers doesn't shift the medain towards it.</li>
-  </ul>
-  <img src="assets/median.PNG" alt="" /></li>
-  <li>Examples of median</li>
-  <img src="assets/median_example.PNG" alt="" /></li>
-</ul>
-<h4 id="mode">Mode</h4>
-<ul>
-  <li>Mode is the value that appears most frequently in the dataset</li>
-  <li>It is mostly used for categorical values to tell which one is most frequent</li>
-</ul>
-<h4 id="weighted-mean">Weighted Mean</h4>
-<ul>
-  <li>Weighted Mean is the sum of the products of each value and its weigh, divided by the sum of weights</li>
-  <li>It is used to calculate mean when the values in the dataset have different importance of frequency</li>
-  <img src="assets/weighted_mean.PNG" alt="" /></li></ul>
-  
-
-
-<h3 id="measure-of-dispersion">Measure of Dispersion</h3>
-<ul>
-  <li>It is a statistical measure that describes the spread or variability of the data.</li>
-  <li>It provides information about how the data is distributed around the central tendency of the dataset </li>
-  <li>Mean alone is not enough to describe the data. We also need to know the distribution of the data</li>
+  <li><b>Contingency table</b> also known as cross-tabulation or crosstab, is a type of table used in statistics to summarize the relationship between two categorical variables</li>
+  <li>It displays the frequency or relative frequencies of the observed values of two variables organized in rows and columns</li>
+  <img src="assets/contingency_table.PNG" alt="" /></li>
 </ul>
 
-<h4 id="range">Range</h4>
+<h4 id="numerical-numerical">Numerical-Numerical</h4>
 <ul>
-  <li>Range is difference between maximum and minimum value in a dataset</li>
-  <ul>
-    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
-  </ul>
-  <img src="assets/range.PNG" alt="" /></li>
+  <li><b>Scatter Plot</b> is used t show relationship between two numerical columns</li>
+  <li>There can exists different type of relationships like positive, negative or no relationship </li>
+  <img src="assets/scatter_plot.PNG" alt="" /></li>
 </ul>
-
-
-<h4 id="variance">Variance</h4>
+<h4 id="categorical-numerical">Categorical-Numerical</h4>
 <ul>
-  <li>It is the average of the squared differences between each data point and the mean </li>
-  <li>It measures the average distance of each data point from the mean and is useful in comparing the dispersion of datasets with different mean </li>
-  <ul>
-    <li>Disadvantage of using variance: It shows just the proportion of spread and not the exact spread</li>
-  </ul>
-  <img src="assets/variance.PNG" alt="" /></li>
+  <li>We can use bar charts & cross tabs to show relatioship</li>
 </ul>
-
-<h4 id="standard-deviation">Standard Deviation</h4>
-<ul>
-  <li>It is the square root of variance</li>
-  <li>Widely used measure for deviation</li>
-  <ul>
-    <li>Adv of using standard deviation: The unit of this is same as that of the data whereas variance gives a value square of the data</li>
-  </ul>
-  <img src="assets/standard_dev.PNG" alt="" /></li>
-</ul>
-
-<h4 id="coefficient-of-variation">Coefficient of Variation</h4>
-<ul>
-  <li>It is the ratio of the standard deviation to the mean expressed as a percentage</li>
-  <li>Used to compare variability of datasets with different means</li>
-  <li>It is a statistical measure that expresses the amount of variability in a dataset relative to the mean.It is a dimensionless quantity expressed in percentage</li>
-  <img src="assets/cov.PNG" alt="" /></li>
-</ul>
-
-
 
 <h3 id="tldr">TL;DR</h3>
 <ul>
   <li>Lets quickly go over the key takeaways from this section:</li><ul>
-    <li>There are basically two types of data - Quantitaive & QUalitative</li>
-    <li>Quantitaive can be further segregated to discrete or continous</li>
-    <li>Qualitative can be further segregated to nominal or ordinal</li>
-    <li>There are three ways to measure central tendency - mean (prone to outliers), median(not prone to outliers), mode(used for categorical data) </li>
-    <li>DIsperson can be measured using - range,variance, standard deviation,  coefficient of variation </li>
+    <li>Graphs can be used to analyze data</li>
+    <li>If only a single column in analyzed we call it univariate analysis and if two columns are involved we call it bivariate analysis</li>
+    <li>In univariate analysis for categorical data we can use frequency table, relative frequency & cummulative frequency</li>
+    <li>In univariate analysis for numerical data we can use histograms </li>
+    <li>In Bivariate analysis for categorical to categorical data relationship we can use contingency table also known as cross table</li>
+    <li>In Bivariate analysis for numerical to numerical data relationship we can scatter plots </li>
+    <li>In Bivariate analysis for categorical to numerical data relationship we can use bar charts or cross tabs</li>
   </ul>
 </ul>
 
