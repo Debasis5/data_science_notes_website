@@ -4,10 +4,10 @@
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ML Notes</title>
+  <title>Notes: Linear Algebra</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="ML Notes">
-  <link rel="canonical" href="./index.html">
+  <meta name="description" content="Detailed Notes">
+  <link rel="canonical" href="/index.html">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/style2.css">
@@ -15,11 +15,11 @@
   <!-- Google fonts -->
   <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>-->
 
-  <!-- RSS feed -->  
-
+  <!-- RSS feed -->
+  
   <!-- Google ads -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5905744527956213"
-     crossorigin="anonymous"></script> -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5905744527956213"
+     crossorigin="anonymous"></script>
 </head>
 
 
@@ -45,68 +45,210 @@
         }
       </style>   
 
- <header class="site-header">
+    <header class="site-header">
 
-  <a class="site-title" >Debasis's ML Notes</a>
+  <a class="site-title" >Linear Algebra</a>
 
   <a class="site-link" href="../index.html">Back to Home</a>
+  <a class="site-link2" href="./ml.html">Back to Contents</a>
 
-  <!-- Html Elements for Search -->
-  <!-- <div id="search-container">
-  <input class="site-search-box" type="text" autocomplete="off" id="search-input" placeholder="search...">
-  <div id="results-container"></div>
-  </div> -->
-
+    
 </header>     
 
     <div class="page-content">
       <div class="wrap">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <div class="first-header">
-<span>&#129504;</span> Data Science<br>
-</div> -->
-<br>
-<div align="justify">
-A table of contents for my notes on the <a href="https://learnwith.campusx.in/" target="_blank">CampusX Data Science Mentorship Program (offered by Nitish)</a>.
+      <div class="post">
 
-<br><br>
- Each section is divided by topic to help you get bite-sized information that is easy to understand!
-</div>
+  <header class="post-header">
+    <h1>Linear Algebra</h1>
+  </header>
 
-<div class="home">
-  <div class="materials-wrap">
-    <div class="module-header"><span>&#128204;</span> Table of Contents</div>
+  <article class="post-content">
+  <ul id="markdown-toc">
+  <li><a href="#way-to-learn-linear-algebra" id="markdown-toc-way-to-learn-linear-algebra">Way to learn Linear Algebra</a>
+  <li><a href="#what-is-linear-algebra" id="markdown-toc-what-is-linear-algebra">What is linear Algebra?</a>
+  <li><a href="#why-need-la-in-ML" id="markdown-toc-why-need-la-in-ML">Why we need to study Linear Algebra for Machine Learning?</a></li>
+  <li><a href="#vectors" id="markdown-toc-vectors">Vectors</a></li>
+  
+  <ul>
+          <li><a href="#how-we-use-vectors-in-ml" id="markdown-toc-how-we-use-vectors-in-ml">How vectors are used in Machine Learning</a></li>
+          <li><a href="#row-column-vector" id="markdown-toc-row-column-vector">Row and column vector</a></li>
+          <li><a href="#standard-deviation" id="markdown-toc-standard-deviation">Standard Deviation</a></li>
+          <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li>
+      </ul>
+   <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
+ </ul>
 
-    <div class="materials-item">
-      <a href="linear_algebra.html">
-        Linear Algebra
-      </a>
-      <div class="kw">
-        Linear Algebra; Vectors;
-      </div>
-    </div>
+<h3 id="way-to-learn-linear-algebra">Way to learn Linear Algebra</h3>
+<ul>
+  <li>It's important to understand the geometric intution behing the concepts rather than only understanding how to do the computation</li>
+  <li>For example we might come to know how to do a matrix multiplication but not understand why and where we will need this logic</li>
+  <li>So, with every topic that we will discuss, will also try to understand its intution and the usage in Machine Learning</li>
+</ul>
+<ul>
+   <img src="assets/linear_algebra.PNG" alt="" /></li>
+  
+</ul>
 
-    <div class="materials-item">
-      <a href="advance_maths.html">
-        Advance Maths for Data Science
-      </a>
-      <div class="kw">
-        Advance Maths
-      </div>
-    </div>
+<h3 id="what-is-linear-algebra">What is Linear Algebra?</h3>
+<ul>
+  <li>A very basic defination can be that it is a study of systems of linear equations</li>
+  <li>A system of linear equations (or linear system) is a collection of one or more linear equations involving the same variables.</li>
+    <ul>
+     <img src="assets/linear_system.PNG" alt="" /></li>
+    </ul>
+    <li>Important concepts in Linear Algebra:</li>    
+    <ul>
+        <li><i>Scalars</i> - numbers like 2,5,6</li>
+        <li><i>Vectors</i> - collection of numbers in one dimension [3,4]</li>
+        <li><i>Matrix</i> - collection of numbers in two dimension</li>
+        <li><i>Tensors</i> - collection of numbers in higher dimensions</li>
+      </ul>
+</ul>
 
-    
-    </div>
+<h3 id="why-need-la-in-ML">Why we need to study Linear Algebra for Machine Learning?</h3>
+<ul>
+  <li>It is very good in generalizing concepts in higher dimensions.</li>
+  <ul>
+    <li>We humans are not good in higher dimension. The max we can visualize is in 3-dimension (like seeing world in 3D)</li>
+    <li>With Linear Algebra we can easily go to any higher dimension and solve them. </li>
+  </ul>
+  <li>Data Representation</li>
+  <ul>
+    <li>In ML & Deep learning we get input data in many formats - tabular, text,image,video,audio</li>
+    <li>With Linear Algebra we can represent all these data very easily using Linear Algebra </li>
+    <li>So, linear algebra helps in representing the data and use them as input for our algorithms</li>
+  </ul>
+</ul>
+<h3 id="vectors">Vectors</h3>
+<ul>
+  <li>The root of all building block in Linear Algebra is vector</li>
+  <li>There are different versions of it Physics, Mathematics & Computer Science. But lets define one for our purpose:</li>
+  <ul>
+    <li>Think of it is an arrow.</li>
+    <ul>
+        <img src="assets/arrow.PNG" alt="" /></li>
+    </ul>
+    <li>Then think of that arrow sitting inside a codinate system (x-y plane) with its tail sitting at the origin </li>
+    <ul>
+        <img src="assets/vector_1.PNG" alt="" /></li>
+    </ul>
+    <li>In Linear Algebra the vector is almost always rooted at the origin except in few cases</li>
+    <li>Now once we understand the concept of arrow in space, we translate them over to the list of numbers which are cordinates of vectors</li>
+    <li>This list of number (co-ordinate) gives instruction on how to reach the tip of the vector from the tail of it(origin)</li>
+    <ul>
+        <li>Like the below 2-D example says the co-orinate to be (2,4) i.e walk 2 units from x-axis and then walk 4 units parallele to y-axis</li>
+        <img src="assets/vector_2.PNG" alt="" /></li>
+    </ul>
+    <li>Every vector is associated with only one pair of number</li>
+    <li>Now this can be extended to 3-dimension by adding another axis(z-axis which is perpendicular to x and y axis) and adding another number for that z-axis</li>
+    <ul>
+        <li>The three numbers (x,y,z) - the 'x' number will tell how far to move along x-axis, 'y' number will tell how far to walk parallel y-axis and the 'z' number will tell how far to move parallel to the z-axis</li>
+        <li>Every triplet of number gives one vector in space and every vector in space gives exactly one triplet of numbers</li>
+        <li>Below is a n example of multiple 3-D vectors in space</li>
+        <ul>
+            <img src="assets/3d_vectors.gif" alt="" /></li>
+        </ul>
+    </ul>
+    <li>Now as we moved from 2-dimension to 3-dimension , we can extend it to any number of dimensions. For example a 4-dimension vector will have a co-orinate as (3,6,7,5) </li>
+    <li>So, 2-D vector system it is a vector of dimenion 2, in n-D vector system it is a vector of dimension n </li>
+    <li>In machine learning a vector is represented as [x1, x2, x3,.....,xn] for a n-dimension vector </li>
 
-    <div class="module-header"><span>&#128248;</span> Credits</div>
-    <div class="materials-item">
-        The source is from CampusX.
-    </div>
+</ul>
+<h4 id="how-we-use-vectors-in-ml">How vectors are used in Machine Learning</h4>
+<ul>
+  <li>Suppose we have a dataset. Let's take <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank">iris dataset</a> which has 150 flower data with 5 columns (Sepal length, Sepal Width, Petal Length, Petal Width, Species)</li>
+   <img src="assets/iris_1.PNG" alt="" /></li>
+   <li>Here the list of inputs (Sepal length, Sepal Width, Petal Length, Petal Width) will be a feature vector</li>
+   <li>And the Species value will be the target</li>
+   <li>So, if we give an input feature vector [5.2,4.3,5.6,7.8] to a machine learning model , it will give output as a target (Setosa)</li>
+   <img src="assets/iris_2.PNG" alt="" /></li>
+   <li>Every input to a machine learning model has to be a vector</li>
+   <li>When the input column is a categorical column then they are encoded as numbers. For example a column 'Gender' with values as male and female will be converted to values as 0
+    '0' and '1' before giving it as an input to a machine learning algorithm.
+   </li>
+   <li>Another example regarding vector in ML is while designing a Movie Recomemdation sysyem:</li>
+   <ul>
+    <li>If the movie data input is as below textual form:</li>
+    <ul>
+        <img src="assets/movie_recommend_1.PNG" alt="" /></li>
+    </ul>
+    <li>Now, to give this as an input to ML models we convert this into a feature vector form using <b>Bag of Words</b> technique</li>
+    <li>This is a 10 deminsional space(as there are 10 columns) where each row can be represented as a vector.</li>
+    <ul>
+        <img src="assets/movie_recommend_2.PNG" alt="" /></li>
+    </ul>
+    <li>Now for better understanding of the usage if suppose there were only 3 dimension(3 columns) and a new movie was given as input and recommendation was asked. </li>
+    <li>Then we find the distance of this new movie vector to other 3 already present movie vectors and the one with least distance will be recommended</li>
+    <ul>
+        <img src="assets/movie_recomend_3.jpeg" alt="" /></li>
+    </ul>
+   
+</ul>
 
-   <br>
-   </div>
-   <br>
-  </div>
+</ul>
+<h4 id="row-column-vector">Row and column vector</h4>
+<ul>
+  <li>Range is difference between maximum and minimum value in a dataset</li>
+  <ul>
+    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
+  </ul>
+  <img src="assets/range.PNG" alt="" /></li>
+</ul>
+
+<h4 id="range">Range</h4>
+<ul>
+  <li>Range is difference between maximum and minimum value in a dataset</li>
+  <ul>
+    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
+  </ul>
+  <img src="assets/range.PNG" alt="" /></li>
+</ul>
+
+
+<h4 id="variance">Variance</h4>
+<ul>
+  <li>It is the average of the squared differences between each data point and the mean </li>
+  <li>It measures the average distance of each data point from the mean and is useful in comparing the dispersion of datasets with different mean </li>
+  <ul>
+    <li>Disadvantage of using variance: It shows just the proportion of spread and not the exact spread</li>
+  </ul>
+  <img src="assets/variance.PNG" alt="" /></li>
+</ul>
+
+<h4 id="standard-deviation">Standard Deviation</h4>
+<ul>
+  <li>It is the square root of variance</li>
+  <li>Widely used measure for deviation</li>
+  <ul>
+    <li>Adv of using standard deviation: The unit of this is same as that of the data whereas variance gives a value square of the data</li>
+  </ul>
+  <img src="assets/standard_dev.PNG" alt="" /></li>
+</ul>
+
+<h4 id="coefficient-of-variation">Coefficient of Variation</h4>
+<ul>
+  <li>It is the ratio of the standard deviation to the mean expressed as a percentage</li>
+  <li>Used to compare variability of datasets with different means</li>
+  <li>It is a statistical measure that expresses the amount of variability in a dataset relative to the mean.It is a dimensionless quantity expressed in percentage</li>
+  <img src="assets/cov.PNG" alt="" /></li>
+</ul>
+
+
+
+<h3 id="tldr">TL;DR</h3>
+<ul>
+  <li>Lets quickly go over the key takeaways from this section:</li><ul>
+    <li>There are basically two types of data - Quantitaive & Qualitative</li>
+    <li>Quantitaive can be further segregated to discrete or continous</li>
+    <li>Qualitative can be further segregated to nominal or ordinal</li>
+    <li>There are three ways to measure central tendency - mean (prone to outliers), median(not prone to outliers), mode(used for categorical data) </li>
+    <li>DIsperson can be measured using - range,variance, standard deviation,  coefficient of variation </li>
+  </ul>
+</ul>
+
+  </article>
+
 </div>
 
       </div>
@@ -134,9 +276,8 @@ A table of contents for my notes on the <a href="https://learnwith.campusx.in/" 
                      </svg>
                   </a>
                </span>
-              </a>
 
-               <a href="mailto:debasispatra.sbd@gmail.com" target="_blank">
+               <a href="mailto:debasispatra.sbd@gmail.com">
                   <svg version="1.1" class="mail-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
                      <image id="image0" width="16" height="16" x="0" y="0" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAW4AAAFuBAMAAABTjO+8AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
@@ -240,7 +381,6 @@ A table of contents for my notes on the <a href="https://learnwith.campusx.in/" 
       </div>
       <div align="center" class="footer-col-1 column">
          <a>Debasis</a>
-         <!-- <a href="https://github.com/Debasis5">Debasis</a> -->
       </div>
       <!-- <div class="footer-col-2 column">
          </div>
@@ -262,20 +402,7 @@ A table of contents for my notes on the <a href="https://learnwith.campusx.in/" 
    </script>   -->
 
    <!-- add title case to section headings -->
-   <!-- <script src="https://vinija.ai/js/ap-style-title-case.js" type="text/javascript"></script>   
-   <script>
-      var headings = document.querySelectorAll("h1, h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]");
-      
-      for (var i = 0; i < headings.length; i++) {
-          headings[i].innerHTML = titleCase(headings[i].innerHTML);
-      }
-      
-      var toc = document.querySelectorAll("a[id^='markdown-toc-']");
-      
-      for (var i = 0; i < toc.length; i++) {
-          toc[i].innerHTML = titleCase(toc[i].innerHTML);
-      }      
-   </script>         -->
+         
 </footer>
 
     
@@ -304,8 +431,6 @@ A table of contents for my notes on the <a href="https://learnwith.campusx.in/" 
       progress.style.setProperty('--scroll', scroll + '%');
     });
     </script>    
-    
-    
     
     </body>
 </html>
