@@ -73,8 +73,20 @@
   <ul>
           <li><a href="#how-we-use-vectors-in-ml" id="markdown-toc-how-we-use-vectors-in-ml">How vectors are used in Machine Learning</a></li>
           <li><a href="#row-column-vector" id="markdown-toc-row-column-vector">Row and column vector</a></li>
-          <li><a href="#standard-deviation" id="markdown-toc-standard-deviation">Standard Deviation</a></li>
-          <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li>
+          <li><a href="#distance-from-origin" id="markdown-toc-distance-from-origin">Distance from origin</a></li>
+          <li><a href="#eucledian-distance" id="markdown-toc-eucledian-distance">Eucledian Distance</a></li>
+          <ul>
+                <li><a href="#eucledian-distance-ml" id="markdown-toc-eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</a></li>
+          </ul>
+          <li><a href="#scalar-addition" id="markdown-toc-calar-addition">Scalar Addition/Subtraction (Shifting)</a></li>
+          <ul>
+            <li><a href="#scalar-add-sub-ml" id="markdown-toc-scalar-add-sub-ml">Where scalar addition/subtraction is used in Machine Learning?</a></li>
+          </ul>
+          <li><a href="#vector-addition" id="markdown-toc-vector-addition">Vector Addition</a></li>
+          <li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Scalar multiplication by a number</a></li>
+          <li><a href="#dot-product" id="markdown-toc-dot-product">Dot Product</a></li>
+          
+          
       </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
@@ -82,7 +94,7 @@
 <h3 id="way-to-learn-linear-algebra">Way to learn Linear Algebra</h3>
 <ul>
   <li>It's important to understand the geometric intution behing the concepts rather than only understanding how to do the computation</li>
-  <li>For example we might come to know how to do a matrix multiplication but not understand why and where we will need this logic</li>
+  <li>For example, we might come to know how to do a matrix multiplication but not understanding why and where we will need this logic will make its usage in applications difficult</li>
   <li>So, with every topic that we will discuss, will also try to understand its intution and the usage in Machine Learning</li>
 </ul>
 <ul>
@@ -104,6 +116,9 @@
         <li><i>Matrix</i> - collection of numbers in two dimension</li>
         <li><i>Tensors</i> - collection of numbers in higher dimensions</li>
       </ul>
+      <ul>
+        <img src="assets/vectors_scalars_matrix.PNG" alt="" /></li>
+    </ul>
 </ul>
 
 <h3 id="why-need-la-in-ML">Why we need to study Linear Algebra for Machine Learning?</h3>
@@ -140,11 +155,11 @@
         <li>Like the below 2-D example says the co-orinate to be (2,4) i.e walk 2 units from x-axis and then walk 4 units parallele to y-axis</li>
         <img src="assets/vector_2.PNG" alt="" /></li>
     </ul>
-    <li>Every vector is associated with only one pair of number</li>
+    <li>Every vector is associated with only one pair of number and every pair of number gives one unique vector (in 2D space)</li>
     <li>Now this can be extended to 3-dimension by adding another axis(z-axis which is perpendicular to x and y axis) and adding another number for that z-axis</li>
     <ul>
         <li>The three numbers (x,y,z) - the 'x' number will tell how far to move along x-axis, 'y' number will tell how far to walk parallel y-axis and the 'z' number will tell how far to move parallel to the z-axis</li>
-        <li>Every triplet of number gives one vector in space and every vector in space gives exactly one triplet of numbers</li>
+        <li>Every triplet of number gives one vector in space and every vector in space gives exactly one triplet of numbers (in 3D space)</li>
         <li>Below is a n example of multiple 3-D vectors in space</li>
         <ul>
             <img src="assets/3d_vectors.gif" alt="" /></li>
@@ -178,7 +193,7 @@
     <ul>
         <img src="assets/movie_recommend_2.PNG" alt="" /></li>
     </ul>
-    <li>Now for better understanding of the usage if suppose there were only 3 dimension(3 columns) and a new movie was given as input and recommendation was asked. </li>
+    <li>Now for better understanding of the usage if suppose there were only 3 dimension (3 columns of data) and a new movie was given as input and recommendation was asked. </li>
     <li>Then we find the distance of this new movie vector to other 3 already present movie vectors and the one with least distance will be recommended</li>
     <ul>
         <img src="assets/movie_recomend_3.jpeg" alt="" /></li>
@@ -189,41 +204,107 @@
 </ul>
 <h4 id="row-column-vector">Row and column vector</h4>
 <ul>
-  <li>Range is difference between maximum and minimum value in a dataset</li>
+  <li>It is a way to represent a vector</li>
   <ul>
-    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
+    <li>If the vector is represented as a row, then it is a row vector. For example a feature vector that we discussed above</li>
+    <ul>
+        <img src="assets/row_vector.PNG" alt="" /></li>
+    </ul>
+    <li>If the vector is represented as a column, then it is a column vector</li>
+    <ul>
+        <img src="assets/column_vector.PNG" alt="" /></li>
+    </ul>
   </ul>
-  <img src="assets/range.PNG" alt="" /></li>
+  <li>In a dataset we can visualise it as below:</li>
+  <img src="assets/row_column_vector.PNG" alt="" /></li>
 </ul>
 
-<h4 id="range">Range</h4>
+<h4 id="distance-from-origin">Distance from Origin</h4>
 <ul>
-  <li>Range is difference between maximum and minimum value in a dataset</li>
+  <li>We use pythagoras theorem to find the distance between the origin and a point in 2-D as it forms the hypotenuse</li>
   <ul>
-    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
-  </ul>
-  <img src="assets/range.PNG" alt="" /></li>
+    <li>If the point is (x,y) then the distance from the origin to this point is squrae_root(x square + y square)</li>
+    <img src="assets/dist_from_origin.PNG" alt="" /></li>
+  </ul>  
+  <li>This distance is also konown as the magnitude of the point denoted as ||A||</li>
+  <li>The 2-D distance forula can be extended to any dimension as square root (sum of squares of the points)</li>
+  <ul>
+    <li>Python code to calculate distance is shown below</li>
+    <img src="assets/code_origin_distance.PNG" alt="" /></li>
+</ul> 
 </ul>
 
-
-<h4 id="variance">Variance</h4>
+<h4 id="eucledian-distance">Eucledian Distance</h4>
 <ul>
-  <li>It is the average of the squared differences between each data point and the mean </li>
-  <li>It measures the average distance of each data point from the mean and is useful in comparing the dispersion of datasets with different mean </li>
+  <li>Eucledian distance formula is used to find out distance between two points</li>
+  <li>In 2D Eucledian distance formula for distance between two points is  </li>
+  <img src="assets/eucledian_dist.PNG" alt="" /></li>
+  <li>We can extend this formula to any dimension. Suppose if its 3D then formula for points (x0,y0,z0) & (x1,y1,z1) would be</li>
+  <img src="assets/eucledian_dist_3d.PNG" alt="" /></li>
+  <h4 id="eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</h3>
   <ul>
-    <li>Disadvantage of using variance: It shows just the proportion of spread and not the exact spread</li>
+        <li>In K-nearest Neighbour algorithm which is a classification algorithm, it uses eucledian distance to classify items</li>
+        <li>In below example, we consider every flower to be a vector and calculate the distance of unknown species from the other two vectors</li>
+        <li>Since the eucledian distance of the new one is closer to setosa, we clasify this as setosa as well</li>
+        <img src="assets/eucledian_dist_ml.PNG" alt="" /></li>
+        <li>Hope we now understand how knowing eucledian distance can help us in Machine learning</li>
   </ul>
-  <img src="assets/variance.PNG" alt="" /></li>
 </ul>
 
-<h4 id="standard-deviation">Standard Deviation</h4>
+<h4 id="scalar-addition">Scalar Addition/Subtraction (Shifting)</h4>
 <ul>
-  <li>It is the square root of variance</li>
-  <li>Widely used measure for deviation</li>
-  <ul>
-    <li>Adv of using standard deviation: The unit of this is same as that of the data whereas variance gives a value square of the data</li>
-  </ul>
-  <img src="assets/standard_dev.PNG" alt="" /></li>
+  <li>When we add a scalar to a vector, it just gets added with each point</li>
+  <li>For example if we add a scalar 2 with a point (3,4). Then it becomes (5,6)</li>
+  <li>Just imagine as if taking 2 units walk further in x and y co-ordinate from (3,4) and we reach (5,6)</li>
+  <li>It is like <b>shifting</b> the vector</li>
+  <img src="assets/scalar_addition.PNG" alt="" /></li>
+  <li>Scalar subtartction will also work in similar way , where we walk backward (-2) instead of forward</li>
+  <img src="assets/scalar_subtraction.PNG" alt="" /></li>
+  <li>This logic applies to any n dimension</li>
+ 
+  <h4 id="scalar-add-sub-ml">Where scalar addition/subtraction is used in Machine Learning?</h3>
+    <ul>
+          <li>It is used for <b>mean centering</b></li>
+          <li>It is a useful pre-processing techique in various ML algorithms which helps to improve performance, convergence and interpretability of models</li>
+          <li>If there are 50 random vectors -> (x1, y1), (x2, y2), ...., (xn, yn)</li>
+          <li>If there are drawn in 2-D space the points will look something like this</li>
+          <img src="assets/raw_data.PNG" alt="" /></li>
+          <li>Next if we take mean of x components and subtract each x-component by this x-mean and similarly take mean of y-componenst and subtract y-component by this y-mean, then the data will get mean centered.</li>
+          <li>It will look something like this</li>
+          <img src="assets/mean_centered_data.PNG" alt="" /></li>
+          <li>This method is used in many Machine learning concepts which we will dive in later studies:</li>
+          <ul>
+            <li>Principal Component Analysis</li>
+            <li>Linear Regression</li>
+            <li>Gradient based optimization algorithms</li>
+            <li>Clustering algorithms</li>
+            <li>Regularizations</li>
+        </ul> 
+    </ul>
+</ul>
+
+<h4 id="vector-addition">Vector Addition</h4>
+<ul>
+  <li>Suppose we have two vectors v (2,3) & w (2,-2)</li>
+  <img src="assets/vector_addition_1.PNG" alt="" /></li>
+  <li>To add this two move the second one such that its tail sits at the tip of first one</li>
+  <img src="assets/vector_addition_2.PNG" alt="" /></li>
+  <li>Now if we draw a vector from tail of first one to tip of second one shifted position. That new vector will be their sum v+ w (4,1)</li>
+  <img src="assets/vector_addition_3.PNG" alt="" /></li>
+  <li>A way to understand this is, if we take a step towards the direction & distance of first vector (v) and then take a step in direction and distance of second vector (w), the overall effect is same as if we have moved along the sum of the two vectors. </li>
+  <li>So, if we have to add (2,3) & (2,-2) then add the x co-ordinates (2+2 = 4) and y co-ordinates (3-2 = 1). The new vector point is (4,-1) </li>
+</ul>
+<li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Vector multiplication by a number</a></li>
+
+
+<h4 id="vector-multiplication-scalar">Scalar multiplication by a number</h4>
+<ul>
+  <li>If we take a vector (2,3)</li>
+  <img src="assets/vector_scalar_multiplication_1.PNG" alt="" /></li>
+  <li>and multiply it by 2, then we stretch it out two times than what we have started (4,6)</li>
+  <img src="assets/vector_scalar_multiplication_2.PNG" alt="" /></li>
+  <li>Similarly, if we multiply by 1/2 then the vectoe becomes half the size of the original</li>
+  <li>This process of strectching, squishing the vector s called <b>scaling</b></li>
 </ul>
 
 <h4 id="coefficient-of-variation">Coefficient of Variation</h4>
