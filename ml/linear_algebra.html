@@ -83,9 +83,20 @@
             <li><a href="#scalar-add-sub-ml" id="markdown-toc-scalar-add-sub-ml">Where scalar addition/subtraction is used in Machine Learning?</a></li>
           </ul>
           <li><a href="#vector-addition" id="markdown-toc-vector-addition">Vector Addition</a></li>
-          <li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Scalar multiplication by a number</a></li>
-          <li><a href="#dot-product" id="markdown-toc-dot-product">Dot Product</a></li>
-          
+          <li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Vector multiplication by a scalar (number)</a></li>
+          <li><a href="#dot-product" id="markdown-toc-dot-product">Dot Product (Multiplication between 2 vectors)</a></li>
+          <ul>
+            <li><a href="#dot-product-1" id="markdown-toc-dot-product-1">Dot Product</a></li>
+            <li><a href="#rules-dot-product" id="markdown-toc-rules-dot-product">Rules of Dot Product</a></li>
+            <li><a href="#useful-dot-product" id="markdown-toc-useful-dot-product">How is Dot Product useful?</a></li>
+            <li><a href="#useful-dot-product-ml" id="markdown-toc-useful-dot-product-ml">Usefulness of Dot product in ML</a></li>
+            <li><a href="#geometric-dot-product-ml" id="markdown-toc-geometric-dot-product-ml">Geometric intution of Dot product</a></li>
+          </ul>
+          <li><a href="#hyperplane" id="markdown-toc-hyperplane">Hyperplane</a></li>
+          <ul>
+            <li><a href="#hyper-plane-need" id="markdown-toc-hyper-plane-need">Why we need hyperplane?</a></li>
+            <li><a href="#equation-of-hyperplane" id="markdown-toc-equation-of-hyperplane">Equation of Hyperplane</a></li>
+          </ul>
           
       </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
@@ -297,7 +308,7 @@
 <li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Vector multiplication by a number</a></li>
 
 
-<h4 id="vector-multiplication-scalar">Scalar multiplication by a number</h4>
+<h4 id="vector-multiplication-scalar">Vector multiplication by a scalar (number)</h4>
 <ul>
   <li>If we take a vector (2,3)</li>
   <img src="assets/vector_scalar_multiplication_1.PNG" alt="" /></li>
@@ -307,24 +318,89 @@
   <li>This process of strectching, squishing the vector s called <b>scaling</b></li>
 </ul>
 
-<h4 id="coefficient-of-variation">Coefficient of Variation</h4>
+<h4 id="dot-product">Dot Product (Multiplication between 2 vectors)</h4>
 <ul>
-  <li>It is the ratio of the standard deviation to the mean expressed as a percentage</li>
-  <li>Used to compare variability of datasets with different means</li>
-  <li>It is a statistical measure that expresses the amount of variability in a dataset relative to the mean.It is a dimensionless quantity expressed in percentage</li>
-  <img src="assets/cov.PNG" alt="" /></li>
+  <li>If there are two vectors v & u there are two types of product that we can do:</li>
+  <ul>
+    <li><b>Dot Product</b> : Also known as Scalar product as the result is a scalar</li>
+    <li><b>Cross Product</b> : Also known as vector product as the result is a vector</li>
+  </ul>
+  <h4 id="dot-product-1">Dot Product</h4>
+  <ul>
+    <li>Its a component wise multiplication</li>
+    <li>if <b>v = [a1,a2,a3]</b> and <b>u = [b1,b2,b3]</b> then <b>u.v = [a1.b1 + a2.b2 + a3.b3]</b></li>
+    <li>We can also treat it as a matrix multiplication</li>
+    <img src="assets/matrix_mul.PNG" alt="" /></li>
+    <img src="assets/matrix_mul1.PNG" alt="" /></li>
+  </ul>
+  <h4 id="rules-dot-product">Rules of Dot Product</h4>
+  <ul>
+    <li>This will help us to understand linear transformations</li>
+    <img src="assets/matrix_mul3.PNG" alt="" /></li>
+  </ul>
+  <h4 id="useful-dot-product">How is Dot Product useful?</h4>
+  <ul>
+    <li>Use to compute similarity between two vectors</li>
+    <li>Calculate projections</li>
+    <li>Perform matrix multiplication</li>
+  </ul> 
+  <h4 id="useful-dot-product-ml">Usefulness of Dot product in ML</h4>
+  <ul>
+    <li>To calculate similarity for recommendations (cosine similarity)</li>
+    <li>Matrix computation in matrix multiplication</li>
+  </ul> 
+  <h4 id="markdown-toc-geometric-dot-product-ml">Geometric intution of Dot product</h4>
+  <img src="assets/dot_product.jpeg" alt="" /></li>
+  <ul>
+    <li>Angle between two vectors</li>
+    <ul>
+       <li>If 'A' & 'B' are non zero vectors then,</li>
+       <li>A.B = 0, Then than means the angle is 90 degree so they are perpendicular to each other</li>
+       <li>This means they are dissimilar and dont share any properties</li>
+    </ul> 
+    <li>Cosine Similarity</li>
+    <ul>
+       <img src="assets/cosine_similarity.PNG" alt="" /></li>
+       <li>This is used as a similarity measure in cosine similarity</li>
+       <li>We find out theta which will give us value from -1 to 1</li>
+       <li>If value (cos theta) is 1 then theta is zero, then they are similar vectors (same direction)</li>
+       <li>If value (cos theta) is 0 then theta is 90 degree, then they are orthogonal then they share no common properties(dis-similar)</li>
+       <li>If value (cos theta) is -1 then theta is 180 degree, then they are opposite vectors (opposite direction)</li>       
+       <img src="assets/cosine_similarity1.PNG" alt="" /></li>
+       <li>This can be used to find similarity between vectors for example movie recommendation system</li>
+    </ul> 
+  </ul> 
 </ul>
 
-
+<h4 id="hyperplane">Hyperplane</h4>
+<ul>
+  <li>In 2-D we get a line similarly in 3D we get a plane</li>
+  <li>Line example</li>
+  <img src="assets/line.PNG" alt="" /></li>
+  <li>Plane example</li>
+  <img src="assets/plane.PNG" alt="" /></li>
+  <li>So, in 4-D, 5-D etc what is the eqivalent of a line or plane? It is <b>HYPER PLANE</b></li>
+  <h4 id="hyper-plane-need">Why we need hyperplane?</h4>
+  <ul>
+    <li>This is needed because in real life examples in Machine Learning we deal with dimension greate than 3D</li>
+    <li>For example iris dataset is a 5D data as it has 5 input columns, in MNIST dataset the dimension is 785</li>
+    <li>So, when we are using algorithms such as Logistic regression, SVM we need equtaions ore than 3D and that is a hyper plane</li>
+  </ul> 
+  <h4 id="equation-of-hyperplane">Equation of Hyperplane</h4>
+  <ul>
+    <li>Equation of a line is <i>y = mx + b</i></li>
+    <img src="assets/line_equation.PNG" alt="" /></li>
+    <li>A equation of hyper plane can be derived from this to be</i></li>
+    <li><b>w1x1 + w2x2 + w3x3 + .... + wnxn + w0 = 0</b></li>
+    <img src="assets/hyperplane_equation.PNG" alt="" /></li>
+    </ul> 
+</ul>
 
 <h3 id="tldr">TL;DR</h3>
 <ul>
   <li>Lets quickly go over the key takeaways from this section:</li><ul>
-    <li>There are basically two types of data - Quantitaive & Qualitative</li>
-    <li>Quantitaive can be further segregated to discrete or continous</li>
-    <li>Qualitative can be further segregated to nominal or ordinal</li>
-    <li>There are three ways to measure central tendency - mean (prone to outliers), median(not prone to outliers), mode(used for categorical data) </li>
-    <li>DIsperson can be measured using - range,variance, standard deviation,  coefficient of variation </li>
+    <li>Yet to update...</li>
+    
   </ul>
 </ul>
 
