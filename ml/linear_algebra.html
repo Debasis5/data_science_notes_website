@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Notes: Linear Algebra</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Detailed Notes">
+  <meta name="description" content="Detailed Linear Algebra Notes">
   <link rel="canonical" href="/index.html">
 
   <!-- Custom CSS -->
@@ -99,6 +99,26 @@
           </ul>
           
       </ul>
+   <li><a href="#matrices" id="markdown-toc-matrices">Matrices</a></li>
+   <ul>
+    <li><a href="#type-of-matices" id="markdown-toc-type-of-matices">Type of Matrices</a></li>
+    <li><a href="#matrix-equality" id="markdown-toc-matrix-equality">Matrix Equality</a></li>
+    <li><a href="#scalar-operation" id="markdown-toc-scalar-operation">Scalar Operation</a></li>
+    <li><a href="#matrix-addition-subtraction" id="markdown-toc-matrix-addition-subtraction">Matrix Addition and Subtraction</a></li>
+    <li><a href="#matrix-multiplication" id="markdown-toc-matrix-multiplication">Matrix Multiplication</a></li>
+    <li><a href="#transpose-matrix" id="markdown-toc-transpose-matrix">Transpose of a Matrix</a></li>
+  
+  </ul>
+
+  <li><a href="#determinants" id="markdown-toc-determinants">Determinants</a></li>
+   <ul>
+    <li><a href="#minor" id="markdown-toc-minor">Minor</a></li>
+    <li><a href="#co-factor" id="markdown-toc-co-factor">Cofactor</a></li>
+    <li><a href="#adjoint" id="markdown-toc-adjoint">Adjoint</a></li>
+    <li><a href="#inverse-of-matrix" id="markdown-toc-inverse-of-matrix">Inverse of Matrix</a></li>
+    <li><a href="#solving-linear-equations" id="markdown-toc-solving-linear-equations">Solving a system of linear equations</a></li>
+    
+  </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
 
@@ -395,6 +415,184 @@
     <img src="assets/hyperplane_equation.PNG" alt="" /></li>
     </ul> 
 </ul>
+</ul>
+
+<h3 id="matrices">Matrices</h3>
+<ul>
+  <li>A matrix is a rectangular array of numbers, symbols or expressions arranged in rows and columns. The number, symbols or expressions are called the elements of matrix</li><ul>
+    <img src="assets/matrix.PNG" alt="" /></li> 
+    <li>They are used in:</li> 
+    <ul>
+      <li>Linear Systems</i></li>
+      <li>Linear Transformations</i></li>
+      <li>Eigen values & Eigen vectors</i></li>
+      <li>Markov Chains</i></li>
+      <li>Computer Graphics</i></li>
+      <li>Control theory</i></li>
+      <li>Optimizations</i></li>
+    </ul> 
+    </ul>
+    <h4 id="type-of-matices">Type of Matrices</h4>
+    <ul>
+      <li><b>Row Matrix</b> also known as row vector. It is a matrix with only one row</li>
+      <li><b>Column Matrix</b> is a matrix with only one column</li>
+      <li><b>Zero Matrix</b> or a null matrix is a matrix that has all its elements zero</li>     
+      <li><b>Square Matrix</b> where number of rows is equal to number of columns</li>
+      <li><b>Diagonal Matrix</b> is a square matrix that has all its elements zero except for those in the diagonal from top left to bottom right; which is known as the leading diagonal of the matrix</li>
+      <li><b>Scalar Matrix</b> is a diagonal matrix where all the diagonal elements are equal</li>
+      <li><b>Identity Matrix</b> also known as unit matrix is a diagonal matrix whose elements in the diagonal are all ones</li>
+      <li><b>upper triangular matrix</b> is a square matrix where all the elements located below the diagonal are zeros</li></li>   
+      <li><b>lower triangular matrix</b> is a square matrix where all the elements located above the diagonal are zeros</li></li>   
+      <img src="assets/type_of_matrix.PNG" alt="" /></li>
+    </ul> 
+
+    <h4 id="matrix-equality">Matrix Equality</h4>
+    <li>Two matix are equal when:</li>
+    <ul>
+      <li>Order is same for both</li>
+      <li><b>Column Matrix</b> is a matrix with only one column</li>
+      <li>Aij = Bij</li>   
+      <li>i.e, all items should match</li>
+      <img src="assets/matrix_equality.PNG" alt="" /></li>
+    </ul> 
+
+    <h4 id="scalar-operation">Scalar Operation</h4>
+    <ul>
+    <li>Scalar Addition : We add a scalr number to all elements of a matrix</li>
+    <li>Scalar Multiplication : We multiply a scalr number to all elements of a matrix</li>
+    <img src="assets/scalar_multiplication.PNG" alt="" /></li>
+    <li>Rule : k(A + B) = KA + KB ; where K is a scalar and A B are two matrices</li>
+    </ul>
+
+    <h4 id="matrix-addition-subtraction">Matrix Addition and Subtraction</h4>
+    <ul>
+    <li><b>Important Rule</b> For matrix operations the order of both the matrix should be same.</li>
+    <li><b>Matrix Addition</b>. This is done element by element</li>
+    <ul>
+      <img src="assets/matrix_addition.PNG" alt="" /></li>
+    </ul>
+    <li><b>Matrix Subtraction</b> is also done element by element</li>
+    <ul>
+      <img src="assets/matrix_subtraction.PNG" alt="" /></li>
+    </ul>
+    <li>Some important <b>Rules</b></li>
+    <ul>
+      <img src="assets/matrix_rules.PNG" alt="" /></li>
+    </ul>
+    </ul>
+
+    <h4 id="matrix-multiplication">Matrix Multiplication</h4>
+    <ul>
+    <li>The concept that we use here is dot product</li>
+    <li><b>Rule</b> for multiplication: The number of columns of first matrix must be equal to number of rows of second matrix</li>
+    <li>The result matrix order will be the 'number of rows of first column' X 'number of columns of second matrix'</li>
+    <img src="assets/matrix_mul_rule.PNG" alt="" /></li>
+    <li>To get the resultant matrix below is formula of dot product for 2 X 2 matrix</li>
+    <img src="assets/matrix_mul_formula.PNG" alt="" /></li>
+    <li>Some important <b>Rules</b> for matrix multiplication</li>
+    <ul>
+      <img src="assets/matrix_mul_rules.PNG" alt="" /></li>
+    </ul>
+    </ul>
+
+    <h4 id="transpose-matrix">Transpose of a Matrix</h4>
+    <ul>
+    <li>It's a matrix transformation where all rows becomes column and all columns become rows</li>
+    <img src="assets/matrix_transpose.PNG" alt="" /></li>
+    <li><b>Symmetric matrix</b> is a matrix which do not change after transpose</li>
+    <li>A = A Transpose</li>
+    <ul>
+      <img src="assets/symmetric_matrix.PNG" alt="" /></li>
+    </ul>
+    <li> <b>Skew Symmetric matrix</b> is a matrix which do not change after transpose</li>
+    <ul>
+      <img src="assets/skew_symmetric_matrix.PNG" alt="" /></li>
+    </ul>
+    <li>Some important <b>Rules</b> for matrix transpose</li>
+    <ul>
+      <img src="assets/matrix_transpose_rules.PNG" alt="" /></li>
+    </ul>
+    </ul>
+
+</ul>
+
+<h3 id="determinants">Determinants</h3>
+<ul>
+  <li>Divison operation cannot be done on matrices, only multiplication can be done.</li>
+  <li>So, we find inverse and multiply it for the same divison operation.</li>
+  <li>Instead of 'A/B' we do 'A * (Inverse of B)'</li>
+  <li>Only square matrix are invertible</li>
+  <li>The formula for finding an inverse is </li>
+  <ul>
+    <img src="assets/inverse_formula.PNG" alt="" /></li>
+    <li>|A| is determinant of A, Adj A is adjoint of A </li>
+  </ul>
+  <li>A <b>determinant</b> is a scalar value computed from a square matrix that carries important information about the matrix</li>
+  <li>It has several uses in linear algebra, including determining the inveriability of a matrix. finding the solution to systems of linear equations and calculating the volume scaling factor</li>
+
+  <ul>
+    <li>How to find determinant?</li>
+    <ul>
+      <li>Determinant for a 2 X 2 matrix:</li>
+      <img src="assets/determinant_2by2.PNG" alt="" /></li>     
+      <li>Determinant for a 3 X 3 matrix:</li>
+      <img src="assets/determinant_3by3.PNG" alt="" /></li>    
+    </ul>
+  </ul>
+  <li>How to decide if inverse of a matrix is possible:</li><br>
+    <ul>
+      <li>It should be a square matrix</li>
+      <li>Determinant of the matrix should not be zero</li>
+      <li>Any matrix whose determinant is zero is called a <b>Singular Matrix</b></li>
+      <li>So, we can only find inverse of a singular matrix</li>
+    </ul>
+
+    <h4 id="minor">Minor</h4>
+    <ul>
+    <li>Minor of an element aij of a Determinant is the determinant obtained by deleting it's ith row and jth column. It is dented by Mij</li>
+    <li>Below is the formula</li>
+    <img src="assets/minor.PNG" alt="" /></li>
+    </ul>
+
+    <h4 id="co-factor">Co-factor</h4>
+    <ul>
+    <img src="assets/cofactor1.PNG" alt="" /></li>
+    <li>Below is an example for one element</li>
+    <img src="assets/cofactor2.PNG" alt="" /></li>
+    </ul>
+
+    <h4 id="adjoint">Adjoint</h4>
+    <ul>
+      <li>The classical adjoint of a matrix is a matrix formed by replacing each element in the original matrix with it's correspoing co-factor and then taking transpose of the resultant matrix.It is denoted as adj(A)</li>
+      <img src="assets/adjoint.PNG" alt="" /></li>
+    </ul>
+
+    <h4 id="inverse-of-matrix">Inverse of a matrix</h4>
+    <ul>
+      <li>Inverse formula is</li>
+      <img src="assets/inverse_formula.PNG" alt="" /></li>
+      <li>An inverse matrix is a matrix that, when multiplied by the original matrix, results in the identity
+        matrix</li>
+      <li>The inverse matrix is defined only for square matrices (matrices with the same number
+        of rows and columns) and not all square matrices have an inverse.</li>
+      <li>A matrix is invertible (has an inverse) if and only if it is non-singular, meaning its determinant is
+        non-zero. If the determinant of A is zero, A is called a singular matrix, and it does not have an
+        inverse.</li>
+      <li>Inverse matrices play a crucial role in linear algebra and have many applications, such as
+        solving systems of linear equations, finding the solution to a matrix equation, and performing
+        various matrix operations. There are several methods for finding the inverse of a matrix,
+        including Gaussian elimination, the adjugate method, and LU decomposition.</li>
+    </ul>
+
+    <h4 id="solving-linear-equations">Solving a system of linear equations</h4>
+    <ul>
+      <li>Any linear equation can be changed into matrix representation and calculated for the unknown</li>
+      <img src="assets/solving_linear_eqn1.PNG" alt="" /></li>
+      <img src="assets/solving_linear_eqn2.PNG" alt="" /></li>
+    </ul>
+    
+</ul>
+
 
 <h3 id="tldr">TL;DR</h3>
 <ul>
