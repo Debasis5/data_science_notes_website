@@ -4,9 +4,9 @@
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Notes: Machine Learning/title>
+  <title>Notes: Machine Learning</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Detailed Machine Learning Notes">
+  <meta name="description" content="Detailed ML Notes">
   <link rel="canonical" href="/index.html">
 
   <!-- Custom CSS -->
@@ -65,590 +65,213 @@
 
   <article class="post-content">
   <ul id="markdown-toc">
-  <li><a href="#introduction-to-machine-learning" id="markdown-toc-introduction-to-machine-learning">Introduction to Machine Learning</a>
-  <li><a href="#what-is-linear-algebra" id="markdown-toc-what-is-linear-algebra">What is linear Algebra?</a>
-  <li><a href="#why-need-la-in-ML" id="markdown-toc-why-need-la-in-ML">Why we need to study Linear Algebra for Machine Learning?</a></li>
-  <li><a href="#vectors" id="markdown-toc-vectors">Vectors</a></li>
-  
-  <ul>
-          <li><a href="#how-we-use-vectors-in-ml" id="markdown-toc-how-we-use-vectors-in-ml">How vectors are used in Machine Learning</a></li>
-          <li><a href="#row-column-vector" id="markdown-toc-row-column-vector">Row and column vector</a></li>
-          <li><a href="#distance-from-origin" id="markdown-toc-distance-from-origin">Distance from origin</a></li>
-          <li><a href="#eucledian-distance" id="markdown-toc-eucledian-distance">Eucledian Distance</a></li>
-          <ul>
-                <li><a href="#eucledian-distance-ml" id="markdown-toc-eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</a></li>
-          </ul>
-          <li><a href="#scalar-addition" id="markdown-toc-calar-addition">Scalar Addition/Subtraction (Shifting)</a></li>
-          <ul>
-            <li><a href="#scalar-add-sub-ml" id="markdown-toc-scalar-add-sub-ml">Where scalar addition/subtraction is used in Machine Learning?</a></li>
-          </ul>
-          <li><a href="#vector-addition" id="markdown-toc-vector-addition">Vector Addition</a></li>
-          <li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Vector multiplication by a scalar (number)</a></li>
-          <li><a href="#dot-product" id="markdown-toc-dot-product">Dot Product (Multiplication between 2 vectors)</a></li>
-          <ul>
-            <li><a href="#dot-product-1" id="markdown-toc-dot-product-1">Dot Product</a></li>
-            <li><a href="#rules-dot-product" id="markdown-toc-rules-dot-product">Rules of Dot Product</a></li>
-            <li><a href="#useful-dot-product" id="markdown-toc-useful-dot-product">How is Dot Product useful?</a></li>
-            <li><a href="#useful-dot-product-ml" id="markdown-toc-useful-dot-product-ml">Usefulness of Dot product in ML</a></li>
-            <li><a href="#geometric-dot-product-ml" id="markdown-toc-geometric-dot-product-ml">Geometric intution of Dot product</a></li>
-          </ul>
-          <li><a href="#hyperplane" id="markdown-toc-hyperplane">Hyperplane</a></li>
-          <ul>
-            <li><a href="#hyper-plane-need" id="markdown-toc-hyper-plane-need">Why we need hyperplane?</a></li>
-            <li><a href="#equation-of-hyperplane" id="markdown-toc-equation-of-hyperplane">Equation of Hyperplane</a></li>
-          </ul>
-          
+  <li><a href="#types-of-machine-learning" id="markdown-toc-types-of-machine-learning">Types of machine Learning</a><ul>
+    <li><a href="#type-of-supervision" id="markdown-toc-type-of-supervision">Based on type of supervision</a></li>
+    <li><a href="#type-of-learning" id="markdown-toc-type-of-learning">Based on type of learning</a></li>
+   </ul>  
+    <li><a href="#supervised-ml" id="markdown-toc-supervised-ml">Supervised Machine Learning</a><ul>
+          <li><a href="#simple-linear-regression" id="markdown-toc-simple-linear-regression">Simple Linear Regression</a></li>
+          <li><a href="#median" id="markdown-toc-median">Median</a></li>
+          <li><a href="#mode" id="markdown-toc-mode">Mode</a></li>
+          <li><a href="#weighted-mean" id="markdown-toc-weighted-mean">Weighted Mean</a></li>
       </ul>
-   <li><a href="#matrices" id="markdown-toc-matrices">Matrices</a></li>
-   <ul>
-    <li><a href="#type-of-matices" id="markdown-toc-type-of-matices">Type of Matrices</a></li>
-    <li><a href="#matrix-equality" id="markdown-toc-matrix-equality">Matrix Equality</a></li>
-    <li><a href="#scalar-operation" id="markdown-toc-scalar-operation">Scalar Operation</a></li>
-    <li><a href="#matrix-addition-subtraction" id="markdown-toc-matrix-addition-subtraction">Matrix Addition and Subtraction</a></li>
-    <li><a href="#matrix-multiplication" id="markdown-toc-matrix-multiplication">Matrix Multiplication</a></li>
-    <li><a href="#transpose-matrix" id="markdown-toc-transpose-matrix">Transpose of a Matrix</a></li>
-  
-  </ul>
-
-  <li><a href="#determinants" id="markdown-toc-determinants">Determinants</a></li>
-   <ul>
-    <li><a href="#minor" id="markdown-toc-minor">Minor</a></li>
-    <li><a href="#co-factor" id="markdown-toc-co-factor">Cofactor</a></li>
-    <li><a href="#adjoint" id="markdown-toc-adjoint">Adjoint</a></li>
-    <li><a href="#inverse-of-matrix" id="markdown-toc-inverse-of-matrix">Inverse of Matrix</a></li>
-    <li><a href="#solving-linear-equations" id="markdown-toc-solving-linear-equations">Solving a system of linear equations</a></li>
-    
-  </ul>
-   <li><a href="#tensors" id="markdown-toc-tensors">Tensors</a></li>
+   <li><a href="#measure-of-dispersion" id="markdown-toc-measure-of-disperion">Measure of Dispersion</a></li><ul>
+          <li><a href="#range" id="markdown-toc-range">Range</a></li>
+          <li><a href="#variance" id="markdown-toc-variance">Variance</a></li>
+          <li><a href="#standard-deviation" id="markdown-toc-standard-deviation">Standard Deviation</a></li>
+          <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li>
+      </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
 
+ <h3 id="types-of-machine-learning">Types of machine Learning</h3>
+ <h4 id="type-of-supervision">Based on type of supervision</h4>
+ <li>If we divide machine learning algorithms based on <i>type of supervision</i> needed, then we can segment as below:</li>
+ <ul>
+  <li><b>Supervised Learning</b> When we have both input and target data</li>
+  <li><b>Unsupervised Learning</b> When we don't have a target variable</li>
+  <li><b>Semi-Supervised Learning</b> which is partially supervised and partially unsupervised</li>
+  <li><b>Reinforcement Learning</b> where there is no data to algorithm. It's like us human beings</li>
+  <img src="assets/types_of_ml.PNG" alt="" /></li>
+ </ul>
+ <h4 id="type-of-learning">Based on type of learning</h4>
+ <li>If we divide machine learning algorithms based on <i>learning</i>, then we can segment as below:</li>
+ <ul>
+  <li><b>Model Based Learning</b>: Where it creates a model</li>
+  <li><b>Instance Based Learning</b>: uses the whole data as model</li>
+  <img src="assets/model_based_learning.PNG" alt="" /></li>
+  <img src="assets/instance_based_learning.PNG" alt="" /></li>
+ </ul>
 
-<h3 id="introduction-to-machine-learning">Introduction to Machine Learning</h3>
+ <h3 id="supervised-ml">Supervised Machine Learning</h3>
 <ul>
-  <li>It's important to understand the geometric intution behing the concepts rather than only understanding how to do the computation</li>
-  <li>For example, we might come to know how to do a matrix multiplication but not understanding why and where we will need this logic will make its usage in applications difficult</li>
-  <li>So, with every topic that we will discuss, will also try to understand its intution and the usage in Machine Learning</li>
+  <li>It is a statistical measure that represents the central value for a dataset. It gives a single value that is most representative of the dataset as a whole</li><ul></ul>
+  <li>There are mainly three types of central tendency measurements</li><ul>
+     <li>Mean</li>
+     <li>Median</li>  
+     <li>Mode</li> 
 </ul>
-<ul>
-   <img src="assets/linear_algebra.PNG" alt="" /></li>
+<li>Now lets try to understand each of them</li>
   
 </ul>
 
-<h3 id="what-is-linear-algebra">What is Linear Algebra?</h3>
+<h4 id="simple-linear-regression">Simple Linear Regression</h4>
 <ul>
-  <li>A very basic defination can be that it is a study of systems of linear equations</li>
-  <li>A system of linear equations (or linear system) is a collection of one or more linear equations involving the same variables.</li>
-    <ul>
-     <img src="assets/linear_system.PNG" alt="" /></li>
-    </ul>
-    <li>Important concepts in Linear Algebra:</li>    
-    <ul>
-        <li><i>Scalars</i> - numbers like 2,5,6</li>
-        <li><i>Vectors</i> - collection of numbers in one dimension [3,4]</li>
-        <li><i>Matrix</i> - collection of numbers in two dimension</li>
-        <li><i>Tensors</i> - collection of numbers in higher dimensions</li>
-      </ul>
+  <li>Mean is the sum of all values in a dataset divided by the number of values</li>
+  <li>This is also known as average</li>
+  <li>When we find out the mean of population it is called as population mean and when we find the mean of a sample it's called a sample mean</li>
+  <ul>
+    <li>Disadvantage of using mean: It is affected by outliers. If there is a big outlier the mean tends to shift towards the outlier not giving a right central value</li>
+  </ul>
+  <img src="assets/mean.PNG" alt="" /></li>
+</ul>
+<h4 id="median">Median</h4>
+<ul>
+  <li>Median is the middle value in the dataset when the data is arranged in order</li>
+  <ul>
+    <li>Advantage of using medain: It is not affected by outliers as in mean. Because of the ordering the outliers doesn't shift the medain towards it.</li>
+  </ul>
+  <img src="assets/median.PNG" alt="" /></li>
+  <li>Examples of median</li>
+  <img src="assets/median_example.PNG" alt="" /></li>
+</ul>
+<h4 id="mode">Mode</h4>
+<ul>
+  <li>Mode is the value that appears most frequently in the dataset</li>
+  <li>It is mostly used for categorical values to tell which one is most frequent</li>
+</ul>
+<h4 id="weighted-mean">Weighted Mean</h4>
+<ul>
+  <li>Weighted Mean is the sum of the products of each value and its weigh, divided by the sum of weights</li>
+  <li>It is used to calculate mean when the values in the dataset have different importance of frequency</li>
+  <img src="assets/weighted_mean.PNG" alt="" /></li></ul>
+
+
+
+<h3 id="type-of-data">Types of Data</h3>
+<ul>
+  <li>In tabular data every column will have a type. By type one means the characterstic of the data</li>
+  <li>Data can be broadly be of two types:</li><ul>
+      <li><b>Quantitaive Data</b> - These are numerical values (ex:1,2,3,1.56...)</li>
+      <li>This can be of two types</li>
+     <ul>
+          <li>Discrete Data - These can be counted and occurs at intervals(ex:1,2,3,4)</li>
+          <li>Continuous Data - These can be measured (ex: 1,1.1,1.2,1.3..)</li>  </ul>
+
+      <li><b>Qualitative Data</b> - These are categorical values (ex: blue, yellow, far, near)</li> 
+      <li>This can be of two types</li>
       <ul>
-        <img src="assets/vectors_scalars_matrix.PNG" alt="" /></li>
-    </ul>
-</ul>
-
-<h3 id="why-need-la-in-ML">Why we need to study Linear Algebra for Machine Learning?</h3>
-<ul>
-  <li>It is very good in generalizing concepts in higher dimensions.</li>
-  <ul>
-    <li>We humans are not good in higher dimension. The max we can visualize is in 3-dimension (like seeing world in 3D)</li>
-    <li>With Linear Algebra we can easily go to any higher dimension and solve them. </li>
-  </ul>
-  <li>Data Representation</li>
-  <ul>
-    <li>In ML & Deep learning we get input data in many formats - tabular, text,image,video,audio</li>
-    <li>With Linear Algebra we can represent all these data very easily using Linear Algebra </li>
-    <li>So, linear algebra helps in representing the data and use them as input for our algorithms</li>
-  </ul>
-</ul>
-<h3 id="vectors">Vectors</h3>
-<ul>
-  <li>The root of all building block in Linear Algebra is vector</li>
-  <li>There are different versions of it Physics, Mathematics & Computer Science. But lets define one for our purpose:</li>
-  <ul>
-    <li>Think of it is an arrow.</li>
-    <ul>
-        <img src="assets/arrow.PNG" alt="" /></li>
-    </ul>
-    <li>Then think of that arrow sitting inside a codinate system (x-y plane) with its tail sitting at the origin </li>
-    <ul>
-        <img src="assets/vector_1.PNG" alt="" /></li>
-    </ul>
-    <li>In Linear Algebra the vector is almost always rooted at the origin except in few cases</li>
-    <li>Now once we understand the concept of arrow in space, we translate them over to the list of numbers which are cordinates of vectors</li>
-    <li>This list of number (co-ordinate) gives instruction on how to reach the tip of the vector from the tail of it(origin)</li>
-    <ul>
-        <li>Like the below 2-D example says the co-orinate to be (2,4) i.e walk 2 units from x-axis and then walk 4 units parallele to y-axis</li>
-        <img src="assets/vector_2.PNG" alt="" /></li>
-    </ul>
-    <li>Every vector is associated with only one pair of number and every pair of number gives one unique vector (in 2D space)</li>
-    <li>Now this can be extended to 3-dimension by adding another axis(z-axis which is perpendicular to x and y axis) and adding another number for that z-axis</li>
-    <ul>
-        <li>The three numbers (x,y,z) - the 'x' number will tell how far to move along x-axis, 'y' number will tell how far to walk parallel y-axis and the 'z' number will tell how far to move parallel to the z-axis</li>
-        <li>Every triplet of number gives one vector in space and every vector in space gives exactly one triplet of numbers (in 3D space)</li>
-        <li>Below is a n example of multiple 3-D vectors in space</li>
-        <ul>
-            <img src="assets/3d_vectors.gif" alt="" /></li>
+          <li>Nominal Data - It has no order (ex: Gender)</li>
+          <li>Ordinal Data - It has order (ex: feedback - we can order between feedbacks)</li>   
         </ul>
-    </ul>
-    <li>Now as we moved from 2-dimension to 3-dimension , we can extend it to any number of dimensions. For example a 4-dimension vector will have a co-orinate as (3,6,7,5) </li>
-    <li>So, 2-D vector system it is a vector of dimenion 2, in n-D vector system it is a vector of dimension n </li>
-    <li>In machine learning a vector is represented as [x1, x2, x3,.....,xn] for a n-dimension vector </li>
+ </ul>
+ <li>Below is a visual representation of the same </li>
 
-</ul>
-<h4 id="how-we-use-vectors-in-ml">How vectors are used in Machine Learning</h4>
-<ul>
-  <li>Suppose we have a dataset. Let's take <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank">iris dataset</a> which has 150 flower data with 5 columns (Sepal length, Sepal Width, Petal Length, Petal Width, Species)</li>
-   <img src="assets/iris_1.PNG" alt="" /></li>
-   <li>Here the list of inputs (Sepal length, Sepal Width, Petal Length, Petal Width) will be a feature vector</li>
-   <li>And the Species value will be the target</li>
-   <li>So, if we give an input feature vector [5.2,4.3,5.6,7.8] to a machine learning model , it will give output as a target (Setosa)</li>
-   <img src="assets/iris_2.PNG" alt="" /></li>
-   <li>Every input to a machine learning model has to be a vector</li>
-   <li>When the input column is a categorical column then they are encoded as numbers. For example a column 'Gender' with values as male and female will be converted to values as 0
-    '0' and '1' before giving it as an input to a machine learning algorithm.
-   </li>
-   <li>Another example regarding vector in ML is while designing a Movie Recomemdation sysyem:</li>
-   <ul>
-    <li>If the movie data input is as below textual form:</li>
-    <ul>
-        <img src="assets/movie_recommend_1.PNG" alt="" /></li>
-    </ul>
-    <li>Now, to give this as an input to ML models we convert this into a feature vector form using <b>Bag of Words</b> technique</li>
-    <li>This is a 10 deminsional space(as there are 10 columns) where each row can be represented as a vector.</li>
-    <ul>
-        <img src="assets/movie_recommend_2.PNG" alt="" /></li>
-    </ul>
-    <li>Now for better understanding of the usage if suppose there were only 3 dimension (3 columns of data) and a new movie was given as input and recommendation was asked. </li>
-    <li>Then we find the distance of this new movie vector to other 3 already present movie vectors and the one with least distance will be recommended</li>
-    <ul>
-        <img src="assets/movie_recomend_3.jpeg" alt="" /></li>
-    </ul>
-   
+  <img src="assets/types_of_data.jpeg" alt="" /></li>
+  <li><i>Note</i>: There is a typo for Categorical data box. It is <b>qualitative</b> data & not quantitaivie </li>
 </ul>
 
-</ul>
-<h4 id="row-column-vector">Row and column vector</h4>
+<h3 id="type-measure-of-central-tendency">Measure of Central Tendency</h3>
 <ul>
-  <li>It is a way to represent a vector</li>
+  <li>It is a statistical measure that represents the central value for a dataset. It gives a single value that is most representative of the dataset as a whole</li><ul></ul>
+  <li>There are mainly three types of central tendency measurements</li><ul>
+     <li>Mean</li>
+     <li>Median</li>  
+     <li>Mode</li> 
+</ul>
+<li>Now lets try to understand each of them</li>
+  
+</ul>
+
+
+<h4 id="mean">Mean</h4>
+<ul>
+  <li>Mean is the sum of all values in a dataset divided by the number of values</li>
+  <li>This is also known as average</li>
+  <li>When we find out the mean of population it is called as population mean and when we find the mean of a sample it's called a sample mean</li>
   <ul>
-    <li>If the vector is represented as a row, then it is a row vector. For example a feature vector that we discussed above</li>
-    <ul>
-        <img src="assets/row_vector.PNG" alt="" /></li>
-    </ul>
-    <li>If the vector is represented as a column, then it is a column vector</li>
-    <ul>
-        <img src="assets/column_vector.PNG" alt="" /></li>
-    </ul>
+    <li>Disadvantage of using mean: It is affected by outliers. If there is a big outlier the mean tends to shift towards the outlier not giving a right central value</li>
   </ul>
-  <li>In a dataset we can visualise it as below:</li>
-  <img src="assets/row_column_vector.PNG" alt="" /></li>
+  <img src="assets/mean.PNG" alt="" /></li>
 </ul>
-
-<h4 id="distance-from-origin">Distance from Origin</h4>
+<h4 id="median">Median</h4>
 <ul>
-  <li>We use pythagoras theorem to find the distance between the origin and a point in 2-D as it forms the hypotenuse</li>
+  <li>Median is the middle value in the dataset when the data is arranged in order</li>
   <ul>
-    <li>If the point is (x,y) then the distance from the origin to this point is squrae_root(x square + y square)</li>
-    <img src="assets/dist_from_origin.PNG" alt="" /></li>
-  </ul>  
-  <li>This distance is also konown as the magnitude of the point denoted as ||A||</li>
-  <li>The 2-D distance forula can be extended to any dimension as square root (sum of squares of the points)</li>
-  <ul>
-    <li>Python code to calculate distance is shown below</li>
-    <img src="assets/code_origin_distance.PNG" alt="" /></li>
-</ul> 
-</ul>
-
-<h4 id="eucledian-distance">Eucledian Distance</h4>
-<ul>
-  <li>Eucledian distance formula is used to find out distance between two points</li>
-  <li>In 2D Eucledian distance formula for distance between two points is  </li>
-  <img src="assets/eucledian_dist.PNG" alt="" /></li>
-  <li>We can extend this formula to any dimension. Suppose if its 3D then formula for points (x0,y0,z0) & (x1,y1,z1) would be</li>
-  <img src="assets/eucledian_dist_3d.PNG" alt="" /></li>
-  <h4 id="eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</h3>
-  <ul>
-        <li>In K-nearest Neighbour algorithm which is a classification algorithm, it uses eucledian distance to classify items</li>
-        <li>In below example, we consider every flower to be a vector and calculate the distance of unknown species from the other two vectors</li>
-        <li>Since the eucledian distance of the new one is closer to setosa, we clasify this as setosa as well</li>
-        <img src="assets/eucledian_dist_ml.PNG" alt="" /></li>
-        <li>Hope we now understand how knowing eucledian distance can help us in Machine learning</li>
+    <li>Advantage of using medain: It is not affected by outliers as in mean. Because of the ordering the outliers doesn't shift the medain towards it.</li>
   </ul>
+  <img src="assets/median.PNG" alt="" /></li>
+  <li>Examples of median</li>
+  <img src="assets/median_example.PNG" alt="" /></li>
+</ul>
+<h4 id="mode">Mode</h4>
+<ul>
+  <li>Mode is the value that appears most frequently in the dataset</li>
+  <li>It is mostly used for categorical values to tell which one is most frequent</li>
+</ul>
+<h4 id="weighted-mean">Weighted Mean</h4>
+<ul>
+  <li>Weighted Mean is the sum of the products of each value and its weigh, divided by the sum of weights</li>
+  <li>It is used to calculate mean when the values in the dataset have different importance of frequency</li>
+  <img src="assets/weighted_mean.PNG" alt="" /></li></ul>
+  
+
+
+<h3 id="measure-of-dispersion">Measure of Dispersion</h3>
+<ul>
+  <li>It is a statistical measure that describes the spread or variability of the data.</li>
+  <li>It provides information about how the data is distributed around the central tendency of the dataset </li>
+  <li>Mean alone is not enough to describe the data. We also need to know the distribution of the data</li>
 </ul>
 
-<h4 id="scalar-addition">Scalar Addition/Subtraction (Shifting)</h4>
+<h4 id="range">Range</h4>
 <ul>
-  <li>When we add a scalar to a vector, it just gets added with each point</li>
-  <li>For example if we add a scalar 2 with a point (3,4). Then it becomes (5,6)</li>
-  <li>Just imagine as if taking 2 units walk further in x and y co-ordinate from (3,4) and we reach (5,6)</li>
-  <li>It is like <b>shifting</b> the vector</li>
-  <img src="assets/scalar_addition.PNG" alt="" /></li>
-  <li>Scalar subtartction will also work in similar way , where we walk backward (-2) instead of forward</li>
-  <img src="assets/scalar_subtraction.PNG" alt="" /></li>
-  <li>This logic applies to any n dimension</li>
- 
-  <h4 id="scalar-add-sub-ml">Where scalar addition/subtraction is used in Machine Learning?</h3>
-    <ul>
-          <li>It is used for <b>mean centering</b></li>
-          <li>It is a useful pre-processing techique in various ML algorithms which helps to improve performance, convergence and interpretability of models</li>
-          <li>If there are 50 random vectors -> (x1, y1), (x2, y2), ...., (xn, yn)</li>
-          <li>If there are drawn in 2-D space the points will look something like this</li>
-          <img src="assets/raw_data.PNG" alt="" /></li>
-          <li>Next if we take mean of x components and subtract each x-component by this x-mean and similarly take mean of y-componenst and subtract y-component by this y-mean, then the data will get mean centered.</li>
-          <li>It will look something like this</li>
-          <img src="assets/mean_centered_data.PNG" alt="" /></li>
-          <li>This method is used in many Machine learning concepts which we will dive in later studies:</li>
-          <ul>
-            <li>Principal Component Analysis</li>
-            <li>Linear Regression</li>
-            <li>Gradient based optimization algorithms</li>
-            <li>Clustering algorithms</li>
-            <li>Regularizations</li>
-        </ul> 
-    </ul>
-</ul>
-
-<h4 id="vector-addition">Vector Addition</h4>
-<ul>
-  <li>Suppose we have two vectors v (2,3) & w (2,-2)</li>
-  <img src="assets/vector_addition_1.PNG" alt="" /></li>
-  <li>To add this two move the second one such that its tail sits at the tip of first one</li>
-  <img src="assets/vector_addition_2.PNG" alt="" /></li>
-  <li>Now if we draw a vector from tail of first one to tip of second one shifted position. That new vector will be their sum v+ w (4,1)</li>
-  <img src="assets/vector_addition_3.PNG" alt="" /></li>
-  <li>A way to understand this is, if we take a step towards the direction & distance of first vector (v) and then take a step in direction and distance of second vector (w), the overall effect is same as if we have moved along the sum of the two vectors. </li>
-  <li>So, if we have to add (2,3) & (2,-2) then add the x co-ordinates (2+2 = 4) and y co-ordinates (3-2 = 1). The new vector point is (4,-1) </li>
-</ul>
-<li><a href="#vector-multiplication-scalar" id="markdown-toc-vector-multiplication-scalar">Vector multiplication by a number</a></li>
-
-
-<h4 id="vector-multiplication-scalar">Vector multiplication by a scalar (number)</h4>
-<ul>
-  <li>If we take a vector (2,3)</li>
-  <img src="assets/vector_scalar_multiplication_1.PNG" alt="" /></li>
-  <li>and multiply it by 2, then we stretch it out two times than what we have started (4,6)</li>
-  <img src="assets/vector_scalar_multiplication_2.PNG" alt="" /></li>
-  <li>Similarly, if we multiply by 1/2 then the vectoe becomes half the size of the original</li>
-  <li>This process of strectching, squishing the vector s called <b>scaling</b></li>
-</ul>
-
-<h4 id="dot-product">Dot Product (Multiplication between 2 vectors)</h4>
-<ul>
-  <li>If there are two vectors v & u there are two types of product that we can do:</li>
+  <li>Range is difference between maximum and minimum value in a dataset</li>
   <ul>
-    <li><b>Dot Product</b> : Also known as Scalar product as the result is a scalar</li>
-    <li><b>Cross Product</b> : Also known as vector product as the result is a vector</li>
+    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
   </ul>
-  <h4 id="dot-product-1">Dot Product</h4>
-  <ul>
-    <li>Its a component wise multiplication</li>
-    <li>if <b>v = [a1,a2,a3]</b> and <b>u = [b1,b2,b3]</b> then <b>u.v = [a1.b1 + a2.b2 + a3.b3]</b></li>
-    <li>We can also treat it as a matrix multiplication</li>
-    <img src="assets/matrix_mul.PNG" alt="" /></li>
-    <img src="assets/matrix_mul1.PNG" alt="" /></li>
-  </ul>
-  <h4 id="rules-dot-product">Rules of Dot Product</h4>
-  <ul>
-    <li>This will help us to understand linear transformations</li>
-    <img src="assets/matrix_mul3.PNG" alt="" /></li>
-  </ul>
-  <h4 id="useful-dot-product">How is Dot Product useful?</h4>
-  <ul>
-    <li>Use to compute similarity between two vectors</li>
-    <li>Calculate projections</li>
-    <li>Perform matrix multiplication</li>
-  </ul> 
-  <h4 id="useful-dot-product-ml">Usefulness of Dot product in ML</h4>
-  <ul>
-    <li>To calculate similarity for recommendations (cosine similarity)</li>
-    <li>Matrix computation in matrix multiplication</li>
-  </ul> 
-  <h4 id="markdown-toc-geometric-dot-product-ml">Geometric intution of Dot product</h4>
-  <img src="assets/dot_product.jpeg" alt="" /></li>
-  <ul>
-    <li>Angle between two vectors</li>
-    <ul>
-       <li>If 'A' & 'B' are non zero vectors then,</li>
-       <li>A.B = 0, Then than means the angle is 90 degree so they are perpendicular to each other</li>
-       <li>This means they are dissimilar and dont share any properties</li>
-    </ul> 
-    <li>Cosine Similarity</li>
-    <ul>
-       <img src="assets/cosine_similarity.PNG" alt="" /></li>
-       <li>This is used as a similarity measure in cosine similarity</li>
-       <li>We find out theta which will give us value from -1 to 1</li>
-       <li>If value (cos theta) is 1 then theta is zero, then they are similar vectors (same direction)</li>
-       <li>If value (cos theta) is 0 then theta is 90 degree, then they are orthogonal then they share no common properties(dis-similar)</li>
-       <li>If value (cos theta) is -1 then theta is 180 degree, then they are opposite vectors (opposite direction)</li>       
-       <img src="assets/cosine_similarity1.PNG" alt="" /></li>
-       <li>This can be used to find similarity between vectors for example movie recommendation system</li>
-    </ul> 
-  </ul> 
+  <img src="assets/range.PNG" alt="" /></li>
 </ul>
 
-<h4 id="hyperplane">Hyperplane</h4>
+
+<h4 id="variance">Variance</h4>
 <ul>
-  <li>In 2-D we get a line similarly in 3D we get a plane</li>
-  <li>Line example</li>
-  <img src="assets/line.PNG" alt="" /></li>
-  <li>Plane example</li>
-  <img src="assets/plane.PNG" alt="" /></li>
-  <li>So, in 4-D, 5-D etc what is the eqivalent of a line or plane? It is <b>HYPER PLANE</b></li>
-  <h4 id="hyper-plane-need">Why we need hyperplane?</h4>
+  <li>It is the average of the squared differences between each data point and the mean </li>
+  <li>It measures the average distance of each data point from the mean and is useful in comparing the dispersion of datasets with different mean </li>
   <ul>
-    <li>This is needed because in real life examples in Machine Learning we deal with dimension greate than 3D</li>
-    <li>For example iris dataset is a 5D data as it has 5 input columns, in MNIST dataset the dimension is 785</li>
-    <li>So, when we are using algorithms such as Logistic regression, SVM we need equtaions ore than 3D and that is a hyper plane</li>
-  </ul> 
-  <h4 id="equation-of-hyperplane">Equation of Hyperplane</h4>
-  <ul>
-    <li>Equation of a line is <i>y = mx + b</i></li>
-    <img src="assets/line_equation.PNG" alt="" /></li>
-    <li>A equation of hyper plane can be derived from this to be</i></li>
-    <li><b>w1x1 + w2x2 + w3x3 + .... + wnxn + w0 = 0</b></li>
-    <img src="assets/hyperplane_equation.PNG" alt="" /></li>
-    </ul> 
-</ul>
-</ul>
-
-<h3 id="matrices">Matrices</h3>
-<ul>
-  <li>A matrix is a rectangular array of numbers, symbols or expressions arranged in rows and columns. The number, symbols or expressions are called the elements of matrix</li><ul>
-    <img src="assets/matrix.PNG" alt="" /></li> 
-    <li>They are used in:</li> 
-    <ul>
-      <li>Linear Systems</i></li>
-      <li>Linear Transformations</i></li>
-      <li>Eigen values & Eigen vectors</i></li>
-      <li>Markov Chains</i></li>
-      <li>Computer Graphics</i></li>
-      <li>Control theory</i></li>
-      <li>Optimizations</i></li>
-    </ul> 
-    </ul>
-    <h4 id="type-of-matices">Type of Matrices</h4>
-    <ul>
-      <li><b>Row Matrix</b> also known as row vector. It is a matrix with only one row</li>
-      <li><b>Column Matrix</b> is a matrix with only one column</li>
-      <li><b>Zero Matrix</b> or a null matrix is a matrix that has all its elements zero</li>     
-      <li><b>Square Matrix</b> where number of rows is equal to number of columns</li>
-      <li><b>Diagonal Matrix</b> is a square matrix that has all its elements zero except for those in the diagonal from top left to bottom right; which is known as the leading diagonal of the matrix</li>
-      <li><b>Scalar Matrix</b> is a diagonal matrix where all the diagonal elements are equal</li>
-      <li><b>Identity Matrix</b> also known as unit matrix is a diagonal matrix whose elements in the diagonal are all ones</li>
-      <li><b>upper triangular matrix</b> is a square matrix where all the elements located below the diagonal are zeros</li></li>   
-      <li><b>lower triangular matrix</b> is a square matrix where all the elements located above the diagonal are zeros</li></li>   
-      <img src="assets/type_of_matrix.PNG" alt="" /></li>
-    </ul> 
-
-    <h4 id="matrix-equality">Matrix Equality</h4>
-    <li>Two matix are equal when:</li>
-    <ul>
-      <li>Order is same for both</li>
-      <li><b>Column Matrix</b> is a matrix with only one column</li>
-      <li>Aij = Bij</li>   
-      <li>i.e, all items should match</li>
-      <img src="assets/matrix_equality.PNG" alt="" /></li>
-    </ul> 
-
-    <h4 id="scalar-operation">Scalar Operation</h4>
-    <ul>
-    <li>Scalar Addition : We add a scalr number to all elements of a matrix</li>
-    <li>Scalar Multiplication : We multiply a scalr number to all elements of a matrix</li>
-    <img src="assets/scalar_multiplication.PNG" alt="" /></li>
-    <li>Rule : k(A + B) = KA + KB ; where K is a scalar and A B are two matrices</li>
-    </ul>
-
-    <h4 id="matrix-addition-subtraction">Matrix Addition and Subtraction</h4>
-    <ul>
-    <li><b>Important Rule</b> For matrix operations the order of both the matrix should be same.</li>
-    <li><b>Matrix Addition</b>. This is done element by element</li>
-    <ul>
-      <img src="assets/matrix_addition.PNG" alt="" /></li>
-    </ul>
-    <li><b>Matrix Subtraction</b> is also done element by element</li>
-    <ul>
-      <img src="assets/matrix_subtraction.PNG" alt="" /></li>
-    </ul>
-    <li>Some important <b>Rules</b></li>
-    <ul>
-      <img src="assets/matrix_rules.PNG" alt="" /></li>
-    </ul>
-    </ul>
-
-    <h4 id="matrix-multiplication">Matrix Multiplication</h4>
-    <ul>
-    <li>The concept that we use here is dot product</li>
-    <li><b>Rule</b> for multiplication: The number of columns of first matrix must be equal to number of rows of second matrix</li>
-    <li>The result matrix order will be the 'number of rows of first column' X 'number of columns of second matrix'</li>
-    <img src="assets/matrix_mul_rule.PNG" alt="" /></li>
-    <li>To get the resultant matrix below is formula of dot product for 2 X 2 matrix</li>
-    <img src="assets/matrix_mul_formula.PNG" alt="" /></li>
-    <li>Some important <b>Rules</b> for matrix multiplication</li>
-    <ul>
-      <img src="assets/matrix_mul_rules.PNG" alt="" /></li>
-    </ul>
-    </ul>
-
-    <h4 id="transpose-matrix">Transpose of a Matrix</h4>
-    <ul>
-    <li>It's a matrix transformation where all rows becomes column and all columns become rows</li>
-    <img src="assets/matrix_transpose.PNG" alt="" /></li>
-    <li><b>Symmetric matrix</b> is a matrix which do not change after transpose</li>
-    <li>A = A Transpose</li>
-    <ul>
-      <img src="assets/symmetric_matrix.PNG" alt="" /></li>
-    </ul>
-    <li> <b>Skew Symmetric matrix</b> is a matrix which do not change after transpose</li>
-    <ul>
-      <img src="assets/skew_symmetric_matrix.PNG" alt="" /></li>
-    </ul>
-    <li>Some important <b>Rules</b> for matrix transpose</li>
-    <ul>
-      <img src="assets/matrix_transpose_rules.PNG" alt="" /></li>
-    </ul>
-    </ul>
-
-</ul>
-
-<h3 id="determinants">Determinants</h3>
-<ul>
-  <li>Divison operation cannot be done on matrices, only multiplication can be done.</li>
-  <li>So, we find inverse and multiply it for the same divison operation.</li>
-  <li>Instead of 'A/B' we do 'A * (Inverse of B)'</li>
-  <li>Only square matrix are invertible</li>
-  <li>The formula for finding an inverse is </li>
-  <ul>
-    <img src="assets/inverse_formula.PNG" alt="" /></li>
-    <li>|A| is determinant of A, Adj A is adjoint of A </li>
+    <li>Disadvantage of using variance: It shows just the proportion of spread and not the exact spread</li>
   </ul>
-  <li>A <b>determinant</b> is a scalar value computed from a square matrix that carries important information about the matrix</li>
-  <li>It has several uses in linear algebra, including determining the inveriability of a matrix. finding the solution to systems of linear equations and calculating the volume scaling factor</li>
+  <img src="assets/variance.PNG" alt="" /></li>
+</ul>
 
+<h4 id="standard-deviation">Standard Deviation</h4>
+<ul>
+  <li>It is the square root of variance</li>
+  <li>Widely used measure for deviation</li>
   <ul>
-    <li>How to find determinant?</li>
-    <ul>
-      <li>Determinant for a 2 X 2 matrix:</li>
-      <img src="assets/determinant_2by2.PNG" alt="" /></li>     
-      <li>Determinant for a 3 X 3 matrix:</li>
-      <img src="assets/determinant_3by3.PNG" alt="" /></li>    
-    </ul>
+    <li>Adv of using standard deviation: The unit of this is same as that of the data whereas variance gives a value square of the data</li>
   </ul>
-  <li>How to decide if inverse of a matrix is possible:</li><br>
-    <ul>
-      <li>It should be a square matrix</li>
-      <li>Determinant of the matrix should not be zero</li>
-      <li>Any matrix whose determinant is zero is called a <b>Singular Matrix</b></li>
-      <li>So, we can only find inverse of a singular matrix</li>
-    </ul>
-
-    <h4 id="minor">Minor</h4>
-    <ul>
-    <li>Minor of an element aij of a Determinant is the determinant obtained by deleting it's ith row and jth column. It is dented by Mij</li>
-    <li>Below is the formula</li>
-    <img src="assets/minor.PNG" alt="" /></li>
-    </ul>
-
-    <h4 id="co-factor">Co-factor</h4>
-    <ul>
-    <img src="assets/cofactor1.PNG" alt="" /></li>
-    <li>Below is an example for one element</li>
-    <img src="assets/cofactor2.PNG" alt="" /></li>
-    </ul>
-
-    <h4 id="adjoint">Adjoint</h4>
-    <ul>
-      <li>The classical adjoint of a matrix is a matrix formed by replacing each element in the original matrix with it's correspoing co-factor and then taking transpose of the resultant matrix.It is denoted as adj(A)</li>
-      <img src="assets/adjoint.PNG" alt="" /></li>
-    </ul>
-
-    <h4 id="inverse-of-matrix">Inverse of a matrix</h4>
-    <ul>
-      <li>Inverse formula is</li>
-      <img src="assets/inverse_formula.PNG" alt="" /></li>
-      <li>An inverse matrix is a matrix that, when multiplied by the original matrix, results in the identity
-        matrix</li>
-      <li>The inverse matrix is defined only for square matrices (matrices with the same number
-        of rows and columns) and not all square matrices have an inverse.</li>
-      <li>A matrix is invertible (has an inverse) if and only if it is non-singular, meaning its determinant is
-        non-zero. If the determinant of A is zero, A is called a singular matrix, and it does not have an
-        inverse.</li>
-      <li>Inverse matrices play a crucial role in linear algebra and have many applications, such as
-        solving systems of linear equations, finding the solution to a matrix equation, and performing
-        various matrix operations. There are several methods for finding the inverse of a matrix,
-        including Gaussian elimination, the adjugate method, and LU decomposition.</li>
-    </ul>
-
-    <h4 id="solving-linear-equations">Solving a system of linear equations</h4>
-    <ul>
-      <li>Any linear equation can be changed into matrix representation and calculated for the unknown</li>
-      <img src="assets/solving_linear_eqn1.PNG" alt="" /></li>
-      <img src="assets/solving_linear_eqn2.PNG" alt="" /></li>
-    </ul>
-    
+  <img src="assets/standard_dev.PNG" alt="" /></li>
 </ul>
 
-<h3 id="tensors">Tensors</h3>
-<li>Tensor is type of Data Structure</li>
-<li>Why we need tensors?</li>
+<h4 id="coefficient-of-variation">Coefficient of Variation</h4>
 <ul>
-  <li>All machine learning libraries use tensors as data structure</li>
+  <li>It is the ratio of the standard deviation to the mean expressed as a percentage</li>
+  <li>Used to compare variability of datasets with different means</li>
+  <li>It is a statistical measure that expresses the amount of variability in a dataset relative to the mean.It is a dimensionless quantity expressed in percentage</li>
+  <img src="assets/cov.PNG" alt="" /></li>
 </ul>
-<li>What are tensors?</li>
-<ul>
-  <li>Tensors is a data structure. Think of it as a container for numbers</li>
-  <li>0D Tensors/Scalar</li>
-    <ul>
-      <li>The number of dimension is zero - 2,3</li>
-      <li>Dimension is also known as rank or number of axis</li>
-      
-    </ul>
-    <li>1D Tensors/Vector</li>
-    <ul>
-      <li>The number of dimension is one - [1,2,3,4]</li>
-      <li>It is also known as vector, 1D array</li>
-      <img src="assets/1D_ex.PNG" alt="" /></li>
-    </ul>
-    <li>2D Tensors/Matrix</li>
-    <ul>
-      <li>The number of dimension is two</li>
-      <li>It is a collection of vectors</li>
-      <img src="assets/2D_ex.PNG" alt="" /></li>
-    </ul>
-    <li>ND Tensors</li>
-    <ul>
-      <li>vector is a collection of scalar, Matrix is a collection of vectors, 3D Tensor is a collection of matrices</li>
-      <li>This idea can be built upon to build higher dimension tensors</li>
-      <li>Example of a 3D tensor below</li>
-      <img src="assets/3D_ex.PNG" alt="" /></li>
-      <li>Example of a 4D tensor - Images</li>
-      <li>Example of a 5D tensor - Videos</li>
-    </ul><br>
-    <li>Below are representation of different kind of tensors</li>
-    <img src="assets/tensors.PNG" alt="" /></li>
-    <li>Rank, Axes and Shapes</li>
-    <ul>
-      <li><b>Rank</b> is the number of dimension or the number of axis. All are same</li>
-      <li><b>Shape</b> is number of elements in an axis</li>
-      <img src="assets/tensor_shape.PNG" alt="" /></li>
-    </ul>
-</ul>
-    
-  </ul>
+
 
 
 <h3 id="tldr">TL;DR</h3>
 <ul>
   <li>Lets quickly go over the key takeaways from this section:</li><ul>
-    <li>Yet to update...</li>
-    
+    <li>There are basically two types of data - Quantitaive & Qualitative</li>
+    <li>Quantitaive can be further segregated to discrete or continous</li>
+    <li>Qualitative can be further segregated to nominal or ordinal</li>
+    <li>There are three ways to measure central tendency - mean (prone to outliers), median(not prone to outliers), mode(used for categorical data) </li>
+    <li>DIsperson can be measured using - range,variance, standard deviation,  coefficient of variation </li>
   </ul>
 </ul>
 

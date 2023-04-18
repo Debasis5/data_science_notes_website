@@ -65,16 +65,15 @@
 
   <article class="post-content">
   <ul id="markdown-toc">
-  <li><a href="#way-to-learn-linear-algebra" id="markdown-toc-way-to-learn-linear-algebra">Way to learn Linear Algebra</a>
-  <li><a href="#what-is-linear-algebra" id="markdown-toc-what-is-linear-algebra">What is linear Algebra?</a>
+  <li><a href="#way-to-learn-linear-algebra" id="markdown-toc-way-to-learn-linear-algebra">Way to learn Linear Algebra</a></li>
+  <li><a href="#what-is-linear-algebra" id="markdown-toc-what-is-linear-algebra">What is linear Algebra?</a></li>
   <li><a href="#why-need-la-in-ML" id="markdown-toc-why-need-la-in-ML">Why we need to study Linear Algebra for Machine Learning?</a></li>
-  <li><a href="#vectors" id="markdown-toc-vectors">Vectors</a></li>
-  
+  <li><a href="#vectors" id="markdown-toc-vectors">Vectors</a></li>  
   <ul>
           <li><a href="#how-we-use-vectors-in-ml" id="markdown-toc-how-we-use-vectors-in-ml">How vectors are used in Machine Learning</a></li>
           <li><a href="#row-column-vector" id="markdown-toc-row-column-vector">Row and column vector</a></li>
           <li><a href="#distance-from-origin" id="markdown-toc-distance-from-origin">Distance from origin</a></li>
-          <li><a href="#eucledian-distance" id="markdown-toc-eucledian-distance">Eucledian Distance</a></li>
+          <li><a href="#eucledian-distance" id="markdown-toc-eucledian-distance">Eucledian Distance (Distance between points or vectors)</a></li>
           <ul>
                 <li><a href="#eucledian-distance-ml" id="markdown-toc-eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</a></li>
           </ul>
@@ -120,6 +119,19 @@
     
   </ul>
    <li><a href="#tensors" id="markdown-toc-tensors">Tensors</a></li>
+
+   <li><a href="#geometric-intuition-matrices" id="markdown-toc-geometric-intuition-matrices">Geometric intuition of matrices</a></li>
+   <ul>
+    <li><a href="#basis-vector" id="markdown-toc-basis-vector">Basis Vector</a></li>
+    <li><a href="#linear-transformation" id="markdown-toc-linear-transformation">Linear Transformations</a></li>
+    <li><a href="#matrix-multiplication-as-composition" id="markdown-toc-matrix-multiplication-as-composition">Matrix Multiplication as composition</a></li>
+    <ul>
+      <li><a href="#matrix-multiplication-as-composition_rule" id="markdown-toc-matrix-multiplication-as-composition_rule">Matrix Multiplication laws geometric intuition</a></li>
+    </ul>
+    <li><a href="#determinant_geometric_intution" id="markdown-toc-determinant_geometric_intution">Geometric intutuion of Determinants</a></li>
+    <li><a href="#inverse-matrix-geometric-intution" id="markdown-toc-inverse-matrix-geometric-intution">Geometric intutuion of Inverse Matrices</a></li>
+  
+  </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
 
@@ -266,14 +278,14 @@
 </ul> 
 </ul>
 
-<h4 id="eucledian-distance">Eucledian Distance</h4>
+<h4 id="eucledian-distance">Eucledian Distance (Distance between points or vectors)</h4>
 <ul>
   <li>Eucledian distance formula is used to find out distance between two points</li>
   <li>In 2D Eucledian distance formula for distance between two points is  </li>
   <img src="assets/eucledian_dist.PNG" alt="" /></li>
   <li>We can extend this formula to any dimension. Suppose if its 3D then formula for points (x0,y0,z0) & (x1,y1,z1) would be</li>
   <img src="assets/eucledian_dist_3d.PNG" alt="" /></li>
-  <h4 id="eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</h3>
+  <h4 id="#eucledian-distance-ml">How Eucledian distance is used in Machine Learning?</h3>
   <ul>
         <li>In K-nearest Neighbour algorithm which is a classification algorithm, it uses eucledian distance to classify items</li>
         <li>In below example, we consider every flower to be a vector and calculate the distance of unknown species from the other two vectors</li>
@@ -376,7 +388,7 @@
     <li>Angle between two vectors</li>
     <ul>
        <li>If 'A' & 'B' are non zero vectors then,</li>
-       <li>A.B = 0, Then than means the angle is 90 degree so they are perpendicular to each other</li>
+       <li>A.B = 0, Then that means the angle is 90 degree so they are perpendicular to each other</li>
        <li>This means they are dissimilar and dont share any properties</li>
     </ul> 
     <li>Cosine Similarity</li>
@@ -642,7 +654,178 @@
     
   </ul>
 
+<h3 id="geometric-intuition-matrices">Geometric intuition of matrices</h3>
+<ul>
+  <li>Having a gemoetric intuition is very important to understand the real need of any concepts</li>
+  <li>We already have discussed geometric intutions of <a href="#vectors">vectors</a>, <a href="##scalar-addition" >scalar addition</a>, <a href="#vector-addition">vector addition</a>  and  <a href="#vector-multiplication-scalar">vector multiplication by a scalar</a> in previous sections</li>
+  <li>Here we will try to understand the intution behind matrices. Ths is inspired from <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank">3Blue1Brown</a> playlist of 'Essense of Linear Algebra'</li>
+ 
+  <h4 id="basis-vector">Basis Vector</h4>
+    <ul>
+      <li>Think of them as vectors with magnitude 1 (unit vectors -distance from origin is 1)</li>
+      <li>For example: in 2D space think of 'i' and 'j' vector of magnitude 1 in x and y axis respectively</li>
+      <img src="assets/basis_vector1.PNG" alt="" /></li>
+      <li>Now by using this basis vector we can represent any vector.</li>
+      <li>For example: if there is a vector [3,2] then we have to stretch the basis vector 3 times along x-axis and 2 times along y-axis</li>
+      <img src="assets/basis_vector2.PNG" alt="" /></li>
+      <li>Any time we are scaling and adding two vectors like this , it is called as <b>linear combination</b></li>
+      <li>So, basically every vector is a set of scalars (Ex: [3,2]) multiplied by the basis vector[i, j]. Th3n add them (ex: 3i +2j) </b></li>
+      <li>This is similar concept as vector addition we read above. where we move the tail of x-vector to tip of y-vector and the line joining the tail of y-vector to tip of x-vector is the new vector</li>
+      <img src="assets/basis_vector3.PNG" alt="" /></li>
+      <li>Why is it called linear? what it has to do with lines? </li>
+      <ul>
+         <li>Any time we fix one scalar and move the other one freely, the tip of resultant vector gives a straight line</li>
+         <img src="assets/basis_vector4.PNG" alt="" /></li>
+         <li>But if we allow both scalars move freely then two things can happen: 1 -> we can reach every possible point in plane 2 -> but if the two vectors line up then the resultant will be a single line passing through origin</li>
+      </ul>
+      <li>The set of all possible vectors we can reach given a linear combination of a given pair of vector is called the <b>SPAN</b> of those two vectors</li>
+      <li>So, the span of most pair of 2D vectors is all vectors in 2D space but when they line up their span is all vectors whose tip sit on a certain line</li>
+      <li>In 3D space if we have two vectors then the span will be a plane cutting through origin</li>
+      <li>In 3D space if we have three vectors then it unlocks access to all 3D vectors </li>  
+      <li>When in 2D the points are lined up or in 3D the third vector lies on the span of the other two we tell they are <b>linearly dependent</b> and kind of redundant</li> 
+      <li>The other way of saying that is one vector can be expressed as a linear combination of the other</li>
+      <li>Where as if each vector does add a new dimension to the span then we call it as <b>linearly independent</b></li>
+      <li>So, a basis of a vector space is a set of linearly independent vectors that span the full space</li>
+    </ul>
 
+    <h4 id="linear-transformation">Linear Transformations</h4>
+    <ul>
+      <li>Matrices as Linear Transformations</li>
+      <li>Think of <b>transformation</b> as a function. To which when we give an input then we receive a tranformed output</li>
+      <img src="assets/function.PNG" alt="" /></li>
+      <li>We call it as transformation because imagine if there is an input vector (like the one in red) and then after passing through a function we got the output vector (like the one in green)</li>
+      <li>Then imagine input vector moving to output vector when passed through the function</li>   
+      <img src="assets/linear_transformation.PNG" alt="" /></li>
+      <li>So, if we want to imagine a transformation of all possible input vector to some output vector, we watch every point in space move to some other point. </li>
+      <img src="assets/linear_transformation_1.gif" alt="" /></li>
+      <li>So the effects of moving all points in space is beautiful but very complicated as it can be arbitary</li>
+      <img src="assets/non_linear_transformation.PNG" alt="" /></li>
+      <li>But in linear algebra we only deal with linear transformation</li>
+      <img src="assets/linear_transformation_2.gif" alt="" /></li>
+      <ul>
+        <li>A transformation is linear if it has two properties:</li>
+        <ul>
+        <li>All transformed lines must remain line without getting curved (must be parallel and evenly spaced)</li>
+        <li>and Origin must remain fixed</li>
+        <img src="assets/linear_transformation_3.gif" alt="" /></li>
+        <li>So, imagine a vector (-1i + 2j). To find out what it will be after a transformation</li>
+        <li>we have to transform and get where it landed and then simply multiply the scalars as in original vector</li>
+        <img src="assets/linear_transformation_4.gif" alt="" /></li>
+        <li>A detailed explanation of how to find where a new vector will land after transformation is below</li>
+        <img src="assets/linear_transformation_5.jpeg" alt="" /></li>
+        <li>And a best way to visualize it with an example is below</li>
+        <img src="assets/linear_transformation_6.gif" alt="" /></li>
+        <li>So, linear transformation is co-oridnates of where the basis vectors will land and matrices gives us a language to describe these transformations. Matrix multiplication shows what the transformation does to the given vector. </li>
+        <li>Every time we see a matrix we can interpret it as a certain <b>transformation of space</b></li>
+        <li>and multiplying a vector to a matrix means to apply the transformation t the vector</li>
+      </ul>
+      </ul>
+    </ul>
+    <h4 id="matrix-multiplication-as-composition">Matrix Multiplication as composition</h4>
+    <ul>
+      <li>When we apply two transformations on a vector for example a rotation and then a Shear, it is known as a compostion of these two transformations</li>
+      <li>So, two operations will happen one after the other</li>
+      <ul>
+        <li>at first a rotation. This will be a matrix where basis vector will land</li>
+        <li>then a sheer. Then another matrix where the vectors will land</li>
+        <img src="assets/composition.PNG" alt="" /></li>
+      </ul>
+      <li>Instead of this two steps we can also get the final points where basis vector will land after rotation & sheer</li>
+      <li>This composition captures both the rotation & sheer transformation in one</li>
+      <img src="assets/composition1.PNG" alt="" /></li>
+      <li>So, this two opeartions are same</li>
+      <img src="assets/composition_2.PNG" alt="" /></li>
+      <li>We can write the two transformation product as equal to the composition</li>
+      <img src="assets/composition_3.PNG" alt="" /></li>
+      <li>Summing up, <b>multiplying two metrices</b> has the geometric meaning of applying one transformation and then another</li>
+      <li>andd the way to read the transformations is from right to left i.e. first the left transformation happens and then moves towards right</li>
+      <img src="assets/composition_4.PNG" alt="" /></li>
+      <li>In terms of matrix multiplication this can be represented as:</li>
+      <ul>
+        <li>At first basis vector initially will land at [e g] and then this vector is transformed as per matrix M1</li>
+        <img src="assets/composition_5.PNG" alt="" /></li>
+        <li>Then second basis vector initially lands at [f g] and then this vector is transformed as per matrix M1</li>
+        <img src="assets/composition_6.PNG" alt="" /></li>
+     </ul>
+     </ul>
+      <ul>
+       <h4 id="matrix-multiplication-as-composition_rule">Matrix Multiplication laws geometric intuition</h4>
+        <ul>
+              <li><b>Not Commutative</b>: M1*M2 not equal to M2*M1 ;Order of multiplication matters as different order will have different transformations and basis vectors will land at different points</li>
+              <li><b>Is Associative</b>: (AB)C = A(BC); as the transformation will happen from left to right. So no matter which two we do together it will land at same place </li>
+        </ul>
+      </ul>  
+    <h4 id="determinant_geometric_intution">Geometric intutuion of Determinants</h4>
+      <ul>         
+          <li>When a basis vector transforms, the area also changes</li>
+          <img src="assets/determinant_1.PNG" alt="" /></li>
+          <li>When it transforms to [3 0][0 2]</li>
+          <li>The area of basis vector changes as below</li>
+          <img src="assets/determinant_2.PNG" alt="" /></li>
+          <li>The factor by which linear transformation changes any area is called the <b>determinant</b> of the transformation</li>
+          <img src="assets/determinant_3.gif" alt="" /></li>  
+          <li>The determinant of a transformation will be '3' if the transformation increases the area of the region by factor of 3</li>
+          <li>If the transformation squishes all the vectors on to a line then determinant is zero</li>
+          <img src="assets/determinant_4.PNG" alt="" /></li>  
+          <li>Determinant can also be negative. How can one scale to negative?</li>
+          <li>Actually this is related to orientation. This is like flipping the space over </li>
+          <li>Below example shows reverse of an orientation. See how the j vector changes position </li>
+          <img src="assets/determinant_5.gif" alt="" /></li>
+          <li>In 3D the cube after transformation changes to a parallelopiped</li>
+          <li>Formula for determinant in 2D</li>
+          <img src="assets/determinant_6.PNG" alt="" /></li>
+          <img src="assets/determinant_7.PNG" alt="" /></li>
+          
+        </ul> 
+
+    <h4 id="inverse-matrix-geometric-intution">Geometric intutuion of Inverse Matrices</h4>
+      <ul>         
+            <li>System of linear equations</li>
+            <img src="assets/inverse_matix_1.PNG" alt="" /></li>
+            <li>Think of the above as a transformation 'A' is applied on 'x' vector to transform it to 'v'</li>
+            <li>There can be two cases of transformation in 2D:</li>
+            <ul>
+              <li>Eiter it squishes to a one D where determinant = 0</li>
+              <li>or, it remains in 2D where the determinant not equals to zero</li>
+            </ul>
+            <li>The case when determinant not equals to zero:</li>
+            <ul>
+              <li>There will always be one and only one vector which lands on 'v' vector</li>
+              <li>This can be found out by revesing the 'v' vector so that it falls on 'x' vector</li>
+              <li>This is called as <b>inverse</b></li>
+              <li>So, if one applies transformation A(inverse) A then will reach where started</li>
+              <li>This transformation does nothing and we reach where started. This is an identity matrix</li>
+              <img src="assets/inverse_matix_2.PNG" alt="" /></li>  
+              <li>If we want to find x vector then formula will be:</li>
+              <img src="assets/inverse_matix_3.PNG" alt="" /></li> 
+              <li>This means that we are following the transformation in reverse and following vector v</li>
+              
+            </ul>
+            <li>The case when determinant equals to zero:</li>
+            <ul>
+              <li>The transfrmation squishes the vector to a line</li>
+              <li>There is no inverse</li>
+            </ul>
+
+            <li><b>Rank</b></li>
+            <ul>
+              <li>When output of a transformation is a line i.e. one dimension then we call the transformation to have a rank 1</li>
+              <li>When output of a transformation lands on a 2D plane then we call the transformation to have a rank 2</li>
+              
+            </ul>
+            
+            <li>Below example shows reverse of an orientation. See how the j vector changes position </li>
+            <img src="assets/determinant_5.gif" alt="" /></li>
+            <li>In 3D the cube after transformation changes to a parallelopiped</li>
+            <li>Formula for determinant in 2D</li>
+            <img src="assets/determinant_6.PNG" alt="" /></li>
+            <img src="assets/determinant_7.PNG" alt="" /></li>
+            
+          </ul>
+
+      </ul>
+      
+  </ul>
 <h3 id="tldr">TL;DR</h3>
 <ul>
   <li>Lets quickly go over the key takeaways from this section:</li><ul>
