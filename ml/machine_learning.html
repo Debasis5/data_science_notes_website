@@ -71,15 +71,20 @@
    </ul>  
     <li><a href="#supervised-ml" id="markdown-toc-supervised-ml">Supervised Machine Learning</a><ul>
           <li><a href="#simple-linear-regression" id="markdown-toc-simple-linear-regression">Simple Linear Regression</a></li>
-          <li><a href="#median" id="markdown-toc-median">Median</a></li>
+          <ul>
+            <li><a href="#simple-linear-regression-metrices" id="markdown-toc-simple-linear-regression-metrices">Regression Metrices</a></li>
+          </ul>
+          <!-- <li><a href="#median" id="markdown-toc-median">Median</a></li>
           <li><a href="#mode" id="markdown-toc-mode">Mode</a></li>
-          <li><a href="#weighted-mean" id="markdown-toc-weighted-mean">Weighted Mean</a></li>
+          <li><a href="#weighted-mean" id="markdown-toc-weighted-mean">Weighted Mean</a></li> -->
       </ul>
-   <li><a href="#measure-of-dispersion" id="markdown-toc-measure-of-disperion">Measure of Dispersion</a></li><ul>
-          <li><a href="#range" id="markdown-toc-range">Range</a></li>
+
+   <!-- <li><a href="#unsupervised-ml" id="markdown-toc-unsupervised-ml">Un-Supervised Machine Learning</a></li> -->
+   <ul>
+          <!-- <li><a href="#range" id="markdown-toc-range">Range</a></li>
           <li><a href="#variance" id="markdown-toc-variance">Variance</a></li>
           <li><a href="#standard-deviation" id="markdown-toc-standard-deviation">Standard Deviation</a></li>
-          <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li>
+          <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li> -->
       </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
@@ -103,163 +108,153 @@
   <img src="assets/instance_based_learning.PNG" alt="" /></li>
  </ul>
 
- <h3 id="supervised-ml">Supervised Machine Learning</h3>
+<h3 id="supervised-ml">Supervised Machine Learning</h3>
 <ul>
-  <li>It is a statistical measure that represents the central value for a dataset. It gives a single value that is most representative of the dataset as a whole</li><ul></ul>
-  <li>There are mainly three types of central tendency measurements</li><ul>
-     <li>Mean</li>
-     <li>Median</li>  
-     <li>Mode</li> 
+  <li>Supervised machine learning is a type of machine learning that learns the relationship and patterns between input and output</li>
+  <li>It uses algorithms that learn the relationship of Features and Target from the dataset. This process is referred to as Training or Fitting</li>
+  <li>There are two types of supervised learning algorithms:</li><ul>
+     <li>Regression</li>  
+     <li>Classification</li> 
 </ul>
-<li>Now lets try to understand each of them</li>
-  
+<li>Now lets try to understand a type of supervised ML algorithm known as linear regression</li>
+<li>There are mainly three types of linear regression</li>
+  <ul>
+    <li>Simple linear regression</li>  
+    <li>Multiple Linear regression</li> 
+    <li>Polynomial Linear regression</li> 
+  </ul>  
 </ul>
 
 <h4 id="simple-linear-regression">Simple Linear Regression</h4>
 <ul>
-  <li>Mean is the sum of all values in a dataset divided by the number of values</li>
-  <li>This is also known as average</li>
-  <li>When we find out the mean of population it is called as population mean and when we find the mean of a sample it's called a sample mean</li>
+  <li>It is a supervised machine learning algorithm</li>
+  <li>When there is one input and one output then simple linear regression can be applied</li>
+  <li>Below is an example data set</li>
+  <img src="assets/simple_linear_regression_1.PNG" alt="" /></li>
+  <li>So, when a 'years of experience' is given as input then we can predict the 'salary' using simple linear regression</li>
+  <img src="assets/simple_linear_regression_2.PNG" alt="" /></li>
+  <li>Note: <i> When there are more than one inputs then it will need multiple linear regression</i></li>
+  
+  <li>How Simple LR works?</li>
   <ul>
-    <li>Disadvantage of using mean: It is affected by outliers. If there is a big outlier the mean tends to shift towards the outlier not giving a right central value</li>
+    <li>First it plots all the plots to a 2-D graph and then finds the 'Best Fit' line</li>
+    <li>A line of best fit is a straight line drawn through the center of a group of data points plotted on a scatter plot</li>
+    <li>The red line below is the line of best fit</li>
+    <img src="assets/simple_linear_regression_3.gif" alt="" /></li>
+    <li>The equation of line is <b>y = mx + b</b></li>
+    <img src="assets/simple_linear_regression_4.PNG" alt="" /></li>
+    <li>Think of <b> 'm' </b> as weightage i.e. how much does the years of experience depends on salary. That's what slope signifies</li>
+    <li>Think of <b> 'b' </b> as what would be the salary when 'years of experience' is zero. It is a default value when 'x'value is zero.</li>
   </ul>
-  <img src="assets/mean.PNG" alt="" /></li>
-</ul>
-<h4 id="median">Median</h4>
-<ul>
-  <li>Median is the middle value in the dataset when the data is arranged in order</li>
+  <li>So, the <b>objective of linear regression</b> is to find the <b>best fit</b> line</li>
+  <li>and the <b>assumption of linear regression</b> is that a linear relationship occurs between two variables and fits a linear equation on the data</li>
+  
+  <li>How to find <b>m</b> and <b>b</b> ?</li>
+  <li>There are two ways:</li>
   <ul>
-    <li>Advantage of using medain: It is not affected by outliers as in mean. Because of the ordering the outliers doesn't shift the medain towards it.</li>
+    <li><b>Closed Form</b>: where we directly apply a formula and the method is called <b>OLS</b> (Ordinary least square)</li>
+    <ul>
+      <li>The scikit-learn library uses OLS for linear regression</li>
+    </ul>
+    <li><b>Non Closed Form</b>: where we use <b>gradient descent</b> (differentiation). This is used because in higher dimension using OLS becomes complicated</li>
+    <ul>
+      <li>The SGD Regressor library uses gradient descent for linear regression</li>
+    </ul>
   </ul>
-  <img src="assets/median.PNG" alt="" /></li>
-  <li>Examples of median</li>
-  <img src="assets/median_example.PNG" alt="" /></li>
-</ul>
-<h4 id="mode">Mode</h4>
-<ul>
-  <li>Mode is the value that appears most frequently in the dataset</li>
-  <li>It is mostly used for categorical values to tell which one is most frequent</li>
-</ul>
-<h4 id="weighted-mean">Weighted Mean</h4>
-<ul>
-  <li>Weighted Mean is the sum of the products of each value and its weigh, divided by the sum of weights</li>
-  <li>It is used to calculate mean when the values in the dataset have different importance of frequency</li>
-  <img src="assets/weighted_mean.PNG" alt="" /></li></ul>
 
+  <li>Positives:</li>
+  <ul>
+    <li>Performs very well for linearly seperated data.</li>
+    <li>Easy to implement and is interpretable.</li>
+  </ul>
+  <li>Negatives:</li>
+  <ul>
+    <li>Pron to outliers and overfitting</li>
+  </ul>
+  
+  <h4 id="simple-linear-regression-metrices">Regression Metrices</h4>
+    <ul>
 
-
-<h3 id="type-of-data">Types of Data</h3>
-<ul>
-  <li>In tabular data every column will have a type. By type one means the characterstic of the data</li>
-  <li>Data can be broadly be of two types:</li><ul>
-      <li><b>Quantitaive Data</b> - These are numerical values (ex:1,2,3,1.56...)</li>
-      <li>This can be of two types</li>
-     <ul>
-          <li>Discrete Data - These can be counted and occurs at intervals(ex:1,2,3,4)</li>
-          <li>Continuous Data - These can be measured (ex: 1,1.1,1.2,1.3..)</li>  </ul>
-
-      <li><b>Qualitative Data</b> - These are categorical values (ex: blue, yellow, far, near)</li> 
-      <li>This can be of two types</li>
+      <li>MAE (Mean Absolute Error)</li>
       <ul>
-          <li>Nominal Data - It has no order (ex: Gender)</li>
-          <li>Ordinal Data - It has order (ex: feedback - we can order between feedbacks)</li>   
+        <img src="assets/mean_absolute_error.PNG" alt="" /></li>
+        <li>Positives:</li>
+        <ul>
+          <li>Tne unit of MAE and output are same as it is just an absolute formula</li>
+          <li>Robust to outliers</li>
         </ul>
+        <li>Negatives:</li>
+        <ul>
+          <li>The graph is not differentiable at zero.</li>
+        </ul>
+      </ul><br>
+
+      <li>MSE (Mean Squared Error)</li>
+      <ul>
+        <img src="assets/mean_square_error.PNG" alt="" /></li>
+        <li>Positives:</li>
+        <ul>
+          <li>Can be used as loss function as it is differentiable</li>
+        </ul>
+        <li>Negatives:</li>
+        <ul>
+          <li>The MSE result is squared than that of output so difficult to interpret</li>
+          <li>Prone to outliers and penalizes them more due to square in formula</li>
+        </ul>
+      </ul>
+
+      <li>RMSE (Root Mean Squared Error)</li>
+      <ul>
+        <li>It's the square root of MSE</li>
+        <img src="assets/root_mse.PNG" alt="" /></li>
+        <li>Positives:</li>
+        <ul>
+          <li>RMSE resultis same as that of output</li>
+        </ul>
+        <li>Negatives:</li>
+        <ul>
+          <li>Prone to outliers and penalizes them more due to square in formula</li>
+        </ul>
+      </ul>
+
+      <li>R2 Score</li>
+      <ul>
+        <li>It is independent of context</li>
+        <li>also known as co-efficient of determinant or also known as Goodness of Fit</li>
+        <li>Here we compare how much better is the linear regression line than the mean line of outputs</li>
+        <img src="assets/r2.PNG" alt="" /></li>
+        <li>If R2 square is 1 that means the line perfectly fits the data</li>
+        <li>If R2 square is 0 that means the regression line is same as mean line</li>
+        <li>How to interpret R2 score</li>
+        <ul>
+          <li>If R2 score is 0.80 then that means input column is able to explain 80% variance in output column</li>
+        </ul>
+
+        <li>Positives:</li>
+        <ul>
+          <li><b>Model interpretability</b>: R-squared is easy to understand, as it represents the proportion of the total variation in the data that the model can explain. For example, an R-squared value of 0.8 indicates that 80% of the variation in the dependent variable can be explained by the independent variables in the model.</li>
+          <li><b>Model comparability</b>: R-squared provides a standardized metric to compare the performance of different models or the same model with different sets of independent variables. It allows for an objective evaluation of which model best captures the underlying patterns in the data.</li>
+          <li><b>Model selection</b>: R-squared can help in selecting the most appropriate model when multiple regression models are available. A higher R-squared value generally indicates a better fit, although other factors, such as the complexity of the model and the risk of overfitting, should also be considered.</li>
+        
+        </ul>
+        <li>Negatives:</li>
+        <ul>
+          <li>The flaw is that if we keep adding input column then R2 score tends to increase. Even if we add irrelevant feature addition increases the R2 score or remains same. It should reduce ideally</li>
+        </ul>
+      </ul>
+
+      <li>Adjusted R2 Score</li>
+      <ul>
+        <li>It helps to reduce the negative of R2 score</li>
+        <img src="assets/adjusted_r2.PNG" alt="" /></li>
+        <li>Positives:</li>
+        <ul>
+          <li>The adjusted R2 will penalize you for adding independent variables that do not fit the model.</li>
+          <li>In regression analysis, it can be tempting to add more variables to the data as you think of them. Some of those variables will be significant, but you can’t be sure that significance is just by chance. The adjusted R2 will compensate for this by that penalizing you for those extra variables.</li>
+        </ul>
+    </ul>
  </ul>
- <li>Below is a visual representation of the same </li>
-
-  <img src="assets/types_of_data.jpeg" alt="" /></li>
-  <li><i>Note</i>: There is a typo for Categorical data box. It is <b>qualitative</b> data & not quantitaivie </li>
-</ul>
-
-<h3 id="type-measure-of-central-tendency">Measure of Central Tendency</h3>
-<ul>
-  <li>It is a statistical measure that represents the central value for a dataset. It gives a single value that is most representative of the dataset as a whole</li><ul></ul>
-  <li>There are mainly three types of central tendency measurements</li><ul>
-     <li>Mean</li>
-     <li>Median</li>  
-     <li>Mode</li> 
-</ul>
-<li>Now lets try to understand each of them</li>
   
-</ul>
-
-
-<h4 id="mean">Mean</h4>
-<ul>
-  <li>Mean is the sum of all values in a dataset divided by the number of values</li>
-  <li>This is also known as average</li>
-  <li>When we find out the mean of population it is called as population mean and when we find the mean of a sample it's called a sample mean</li>
-  <ul>
-    <li>Disadvantage of using mean: It is affected by outliers. If there is a big outlier the mean tends to shift towards the outlier not giving a right central value</li>
-  </ul>
-  <img src="assets/mean.PNG" alt="" /></li>
-</ul>
-<h4 id="median">Median</h4>
-<ul>
-  <li>Median is the middle value in the dataset when the data is arranged in order</li>
-  <ul>
-    <li>Advantage of using medain: It is not affected by outliers as in mean. Because of the ordering the outliers doesn't shift the medain towards it.</li>
-  </ul>
-  <img src="assets/median.PNG" alt="" /></li>
-  <li>Examples of median</li>
-  <img src="assets/median_example.PNG" alt="" /></li>
-</ul>
-<h4 id="mode">Mode</h4>
-<ul>
-  <li>Mode is the value that appears most frequently in the dataset</li>
-  <li>It is mostly used for categorical values to tell which one is most frequent</li>
-</ul>
-<h4 id="weighted-mean">Weighted Mean</h4>
-<ul>
-  <li>Weighted Mean is the sum of the products of each value and its weigh, divided by the sum of weights</li>
-  <li>It is used to calculate mean when the values in the dataset have different importance of frequency</li>
-  <img src="assets/weighted_mean.PNG" alt="" /></li></ul>
-  
-
-
-<h3 id="measure-of-dispersion">Measure of Dispersion</h3>
-<ul>
-  <li>It is a statistical measure that describes the spread or variability of the data.</li>
-  <li>It provides information about how the data is distributed around the central tendency of the dataset </li>
-  <li>Mean alone is not enough to describe the data. We also need to know the distribution of the data</li>
-</ul>
-
-<h4 id="range">Range</h4>
-<ul>
-  <li>Range is difference between maximum and minimum value in a dataset</li>
-  <ul>
-    <li>Disadvantage of using range: It is prone to outliers as it depends on max and min value. So,it is mostly not used</li>
-  </ul>
-  <img src="assets/range.PNG" alt="" /></li>
-</ul>
-
-
-<h4 id="variance">Variance</h4>
-<ul>
-  <li>It is the average of the squared differences between each data point and the mean </li>
-  <li>It measures the average distance of each data point from the mean and is useful in comparing the dispersion of datasets with different mean </li>
-  <ul>
-    <li>Disadvantage of using variance: It shows just the proportion of spread and not the exact spread</li>
-  </ul>
-  <img src="assets/variance.PNG" alt="" /></li>
-</ul>
-
-<h4 id="standard-deviation">Standard Deviation</h4>
-<ul>
-  <li>It is the square root of variance</li>
-  <li>Widely used measure for deviation</li>
-  <ul>
-    <li>Adv of using standard deviation: The unit of this is same as that of the data whereas variance gives a value square of the data</li>
-  </ul>
-  <img src="assets/standard_dev.PNG" alt="" /></li>
-</ul>
-
-<h4 id="coefficient-of-variation">Coefficient of Variation</h4>
-<ul>
-  <li>It is the ratio of the standard deviation to the mean expressed as a percentage</li>
-  <li>Used to compare variability of datasets with different means</li>
-  <li>It is a statistical measure that expresses the amount of variability in a dataset relative to the mean.It is a dimensionless quantity expressed in percentage</li>
-  <img src="assets/cov.PNG" alt="" /></li>
 </ul>
 
 
@@ -267,12 +262,8 @@
 <h3 id="tldr">TL;DR</h3>
 <ul>
   <li>Lets quickly go over the key takeaways from this section:</li><ul>
-    <li>There are basically two types of data - Quantitaive & Qualitative</li>
-    <li>Quantitaive can be further segregated to discrete or continous</li>
-    <li>Qualitative can be further segregated to nominal or ordinal</li>
-    <li>There are three ways to measure central tendency - mean (prone to outliers), median(not prone to outliers), mode(used for categorical data) </li>
-    <li>DIsperson can be measured using - range,variance, standard deviation,  coefficient of variation </li>
-  </ul>
+    <li>Yet to update...</li>
+    </ul>
 </ul>
 
   </article>
