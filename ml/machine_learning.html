@@ -74,6 +74,8 @@
           <ul>
             <li><a href="#simple-linear-regression-metrices" id="markdown-toc-simple-linear-regression-metrices">Regression Metrices</a></li>
           </ul>
+          <li><a href="#multiple-linear-regression" id="markdown-toc-multiple-linear-regression">Multiple Linear Regression</a></li>
+          
           <!-- <li><a href="#median" id="markdown-toc-median">Median</a></li>
           <li><a href="#mode" id="markdown-toc-mode">Mode</a></li>
           <li><a href="#weighted-mean" id="markdown-toc-weighted-mean">Weighted Mean</a></li> -->
@@ -254,7 +256,27 @@
         </ul>
     </ul>
  </ul>
-  
+ 
+</ul>
+<h4 id="multiple-linear-regression">Multiple Linear Regression</h4>
+<ul>
+ <li>If number of input features is more than one then we can use Multiple linear Regression. It is an extension of Simple LR </li>
+ <img src="assets/multiple_linear_regression_1.PNG" alt="" /></li>
+ <li>In simple LR we used to get a line , likewise in multiple linear regression we will get a <b>hyper-plane</b> </li>
+ <img src="assets/multiple_linear_regression_2.PNG" alt="" /></li>
+ <li>So, the <b>objective of multiple linear regression</b> is to find the <b>best fit</b> hyper plane</li>
+ <li>bo, b1, b2... are also known as weights</li>
+ <li>Formula to find beta</li>
+ <img src="assets/multiple_linear_regression_3.PNG" alt="" /></li>
+ <li><b>Challenges</b> with OLS</li>
+ <ul>
+  <li>There are two ways to do linear regression: OLS , Gradient Descent</li>
+  <li>We learned the OLS (closed form). Here we derieve a formula for beta (same implementation in scikit learn library)</li>
+  <li>But there are challenges with OLS solution:</li>
+  <ul>
+    <li>The beta formula has an inverse part. Calculating inverse is computationally very high</li>
+  </ul>
+ </ul>
 </ul>
 
 
