@@ -74,6 +74,13 @@
           <li><a href="#simple-linear-regression" id="markdown-toc-simple-linear-regression">Simple Linear Regression</a></li>
           <ul>
             <li><a href="#simple-linear-regression-metrices" id="markdown-toc-simple-linear-regression-metrices">Regression Metrices</a></li>
+            <ul>
+              <li><a href="#mae" id="markdown-toc-mae">MAE(Mean Absolute Error)</a></li>
+              <li><a href="#mse" id="markdown-toc-mse">MSE(Mean Square Error)</a></li>
+              <li><a href="#rmse" id="markdown-toc-rmse">RMSE(Root Mean Squared Error)</a></li>
+              <li><a href="#r2score" id="markdown-toc-r2score">R2 Score</a></li>
+              <li><a href="#adjustedr2score" id="markdown-toc-adjustedr2score">Adjusted R2 Score</a></li>
+            </ul>
           </ul>
           <li><a href="#multiple-linear-regression" id="markdown-toc-multiple-linear-regression">Multiple Linear Regression</a></li>
           
@@ -89,6 +96,10 @@
           <li><a href="#standard-deviation" id="markdown-toc-standard-deviation">Standard Deviation</a></li>
           <li><a href="#coefficient-of-variation" id="markdown-toc-coeeficient-of-variation">Coefficient of Variation</a></li> -->
       </ul>
+   <li><a href="#gradient-descent" id="markdown-toc-gradient-descent">Gradient Descent</a></li>
+   <ul>
+    <li><a href="#gradient-descent-types" id="markdown-toc-gradient-descent-types">Types of Gradient Descent</a></li>
+   </ul>
    <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
  </ul>
 
@@ -180,8 +191,7 @@
   
   <h4 id="simple-linear-regression-metrices">Regression Metrices</h4>
     <ul>
-
-      <li>MAE (Mean Absolute Error)</li>
+      <h4 id="mae">MAE (Mean Absolute Error)</h4>
       <ul>
         <img src="assets/mean_absolute_error.PNG" alt="" /></li>
         <li>Positives:</li>
@@ -194,8 +204,7 @@
           <li>The graph is not differentiable at zero.</li>
         </ul>
       </ul><br>
-
-      <li>MSE (Mean Squared Error)</li>
+      <h4 id="mse">MSE (Mean Squared Error)</h4>
       <ul>
         <img src="assets/mean_square_error.PNG" alt="" /></li>
         <li>Positives:</li>
@@ -208,8 +217,7 @@
           <li>Prone to outliers and penalizes them more due to square in formula</li>
         </ul>
       </ul>
-
-      <li>RMSE (Root Mean Squared Error)</li>
+      <h4 id="rmse">RMSE (Root Mean Squared Error)</h4>
       <ul>
         <li>It's the square root of MSE</li>
         <img src="assets/root_mse.PNG" alt="" /></li>
@@ -223,7 +231,7 @@
         </ul>
       </ul>
 
-      <li>R2 Score</li>
+      <h4 id="r2score">R2 Score</h4>
       <ul>
         <li>It is independent of context</li>
         <li>also known as co-efficient of determinant or also known as Goodness of Fit</li>
@@ -249,7 +257,7 @@
         </ul>
       </ul>
 
-      <li>Adjusted R2 Score</li>
+      <h4 id="adjustedr2score">Adjusted R2 Score</h4>
       <ul>
         <li>It helps to reduce the negative of R2 score</li>
         <img src="assets/adjusted_r2.PNG" alt="" /></li>
@@ -283,6 +291,27 @@
  </ul>
 </ul>
 
+<h4 id="gradient-descent">Gradient Descent</h4>
+<ul>
+ <li>Gradient Descent is the first order iterative optimization for finding the local minimum of a differentiable function</li>
+ <li>How it works?</li>
+ <img src="assets/gradient_descent1.PNG" alt="" /></li>
+ <li>We take small incremental steps towards local minimum </li>
+ <li>The incremental step to update b is done by below formula</li>
+ <img src="assets/gradient_descent2.PNG" alt="" /></li>
+ <li>Here n is learning rate having vales as 0.1, 0.1...</li>
+ <li>When to Stop?</li>
+ <ul>
+  <li>When bold and b new difference is negligible like 0.001</li>
+  <li>Epoch - No of iterations to run</li>
+ </ul>
+ <h4 id="gradient-descent-types">Types of Gradient Descent</h4>
+ <ul>
+  <li>Batch Gradient Descent - Here all the data is taken at once to update once</li>
+  <li>Stochastic Gradient Descent - Update on a single row at a time</li>
+  <li>Mini Batch Gradient Descent - Use a batc size to update</li>
+ </ul>
+</ul>
 
 
 <h3 id="tldr">TL;DR</h3>
